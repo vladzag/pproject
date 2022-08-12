@@ -17,10 +17,12 @@ public class IndexPageGismeteo extends DefaultPage {
     public static final By headerLinkSoft = new By.ByPartialLinkText("Приложения");
     public static final By searchField = new By.ByXPath("/html/body/header/div[2]/div[2]/div/div/div[1]/div/input");
     public static final By clearSearchField = new By.ByXPath("/html/body/header/div[2]/div[2]/div/div/div[1]/div/i[2]");
-    public static final By firstItemInSearch = new By.ByXPath("//a[contains(@class, \\\"search-item list-item icon-menu icon-menu-gray\\\")]\")");
+    public static final By firstItemInSearch = new By.ByCssSelector("body > header > div.header-subnav > div.header-container.wrap > div > div > div.found > div > div.search-list.weather-menu.menu-white > a:nth-child(1) > div.city > div.city-text");
 
     public static final By meteoStationBulchug = new By.ByCssSelector("body > section > div.content-column.column1 > section:nth-child(1) > div.widget.nearestams > div.meteostations > a:nth-child(1) > div.meteostation-title > span");
     public static final By meteoStationSVO = new By.ByCssSelector("body > section > div.content-column.column1 > section:nth-child(1) > div.widget.nearestams > div.meteostations > a:nth-child(4) > div.meteostation-title > span");
+
+
 
 
     // "//a[contains(@class, \"search-item list-item icon-menu icon-menu-gray\")]");
