@@ -3,6 +3,7 @@ package IndexTest.ParticularTests;
 import IndexTest.DefaultPageTest;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.Actions;
@@ -13,6 +14,7 @@ import webpages.gismeteo.IndexPageGismeteo;
 import webpages.gismeteo.pages.CityPage;
 
 import java.util.Collections;
+import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -247,10 +249,7 @@ public class TestPageContents extends DefaultPageTest {
         defaultPage.openWebPages(defaultURL);
         clickElement(IndexPageGismeteo.meteoStationBulchug);
         PointerInput mouse = new PointerInput(PointerInput.Kind.MOUSE, "default mouse");
-        Sequence actions = new Sequence(mouse, 0)
-                .addAction(mouse.createPointerDown(PointerInput.MouseButton.BACK.asArg()))
-                .addAction(mouse.createPointerUp(PointerInput.MouseButton.BACK.asArg()));
-        ((RemoteWebDriver) driver).perform(Collections.singletonList(actions));
+        driver.navigate().back();
         clickElement(IndexPageGismeteo.meteoStationSVO);
         driver.get(defaultURL);
         clickElement(CityPage.clearVisitedCities);
@@ -371,6 +370,29 @@ public class TestPageContents extends DefaultPageTest {
         clickElement(CityPage.voronezhUpperMoreButton);
         clickElement(CityPage.voronezhWeatherDairy);
         Assertions.assertEquals(voronezhWeatherDairy, driver.getCurrentUrl(), voronezhWeatherDairy + " и " + driver.getCurrentUrl() + " неверные");
+        driver.quit();
+    }
+
+    @Test
+    public void replaceYandexCookie() {
+        defaultPage.openWebPages(voronezhURL);
+        Cookie cookieTest = new Cookie("yuidss", "8"); //original value = 1914338451625754248
+        driver.manage().addCookie(cookieTest);
+        driver.quit();
+    }
+
+    @Test
+    public void deleteAllCookiesLoadingTime() {
+        long startWithCookies = System.currentTimeMillis();
+        defaultPage.openWebPages(voronezhURL);
+        long finishWithCookies = System.currentTimeMillis();
+        long totalTimeWithCookies = finishWithCookies - startWithCookies;
+        driver.manage().deleteAllCookies();
+        long startWithoutCookies = System.currentTimeMillis();
+        driver.navigate().refresh();
+        long finishWithoutCookies = System.currentTimeMillis();
+        long totalTimeWithoutCookies = finishWithoutCookies - startWithoutCookies;
+        System.out.println(totalTimeWithCookies - totalTimeWithoutCookies + " миллисекунд разница между загрузкой с куками и без");
         driver.quit();
     }
 }
