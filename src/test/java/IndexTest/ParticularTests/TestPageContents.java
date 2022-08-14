@@ -372,27 +372,4 @@ public class TestPageContents extends DefaultPageTest {
         Assertions.assertEquals(voronezhWeatherDairy, driver.getCurrentUrl(), voronezhWeatherDairy + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
-
-    @Test
-    public void replaceYandexCookie() {
-        defaultPage.openWebPages(voronezhURL);
-        Cookie cookieTest = new Cookie("yuidss", "8"); //original value = 1914338451625754248
-        driver.manage().addCookie(cookieTest);
-        driver.quit();
-    }
-
-    @Test
-    public void deleteAllCookiesLoadingTime() {
-        long startWithCookies = System.currentTimeMillis();
-        defaultPage.openWebPages(voronezhURL);
-        long finishWithCookies = System.currentTimeMillis();
-        long totalTimeWithCookies = finishWithCookies - startWithCookies;
-        driver.manage().deleteAllCookies();
-        long startWithoutCookies = System.currentTimeMillis();
-        driver.navigate().refresh();
-        long finishWithoutCookies = System.currentTimeMillis();
-        long totalTimeWithoutCookies = finishWithoutCookies - startWithoutCookies;
-        System.out.println(totalTimeWithCookies - totalTimeWithoutCookies + " миллисекунд разница между загрузкой с куками и без");
-        driver.quit();
-    }
 }
