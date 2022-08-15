@@ -1,6 +1,7 @@
 package IndexTest.ParticularTests;
 
 import IndexTest.DefaultPageTest;
+import common.ConfiguresAndConstants;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
@@ -11,7 +12,7 @@ import static webpages.gismeteo.IndexPageGismeteo.*;
 public class ClickableHeaderLinksTest extends DefaultPageTest {
     @Test
     public void ClickableHeaderLinksTest() {
-        defaultPage.openWebPages("https://www.gismeteo.ru/");
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL);
         clickElement(headerLinkMaps);
         String mapsTitleExpected = "GISMETEO: осадки в Европе, прогноз осадков на карте Европы";
         Assertions.assertEquals(mapsTitleExpected, driver.getTitle(), "was expected " + mapsTitleExpected + ", but got " + driver.getTitle());

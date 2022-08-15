@@ -1,7 +1,10 @@
 package IndexTest.ParticularTests;
 
 import IndexTest.DefaultPageTest;
+import common.ConfiguresAndConstants;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.By;
@@ -16,7 +19,16 @@ import java.util.Iterator;
 import java.util.List;
 
 public class GeneralTest extends DefaultPageTest {
-    String defaultURL = "https://www.gismeteo.ru";
+
+    @BeforeEach
+    public void beforeEachMethod() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL);
+    }
+
+    @AfterEach
+    public void afterEachMethod() {
+        driver.quit();
+    }
 
     @ParameterizedTest
     @ValueSource(strings = {"https://www.gismeteo.ru/", "https://www.gismeteo.ru/weather-syzran-4448/", "https://www.gismeteo.ru/news/", "https://www.gismeteo.ru/maps/", "https://www.gismeteo.ru/informers/", "https://www.gismeteo.ru/soft/"})
@@ -60,16 +72,14 @@ public class GeneralTest extends DefaultPageTest {
 
     @Test
     public void replaceYandexCookie() {
-        defaultPage.openWebPages(defaultURL);
         Cookie cookieTest = new Cookie("yuidss", "8"); //original value = 1914338451625754248
         driver.manage().addCookie(cookieTest);
-        driver.quit();
     }
 
     @Test
     public void deleteAllCookiesLoadingTime() {
         long startWithCookies = System.currentTimeMillis();
-        defaultPage.openWebPages(defaultURL);
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL);
         long finishWithCookies = System.currentTimeMillis();
         long totalTimeWithCookies = finishWithCookies - startWithCookies;
         driver.manage().deleteAllCookies();
