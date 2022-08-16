@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.NewsPageGismeteo;
 
 public class NewsPageTest extends DefaultPageTest {
-
+/*
     @BeforeEach
     public void beforeEachMethod() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
@@ -20,17 +20,21 @@ public class NewsPageTest extends DefaultPageTest {
     @AfterEach
     public void afterEachMethod() {
         driver.quit();
-    }
+    }*/
 
     @Test
     public void checkURL() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         Assertions.assertEquals("https://www.gismeteo.ru/news/", driver.getCurrentUrl(), "https://www.gismeteo.ru/news/" + driver.getCurrentUrl() + " не соответствуют");
+        driver.quit();
     }
 
     @Test
     public void checkTopLinks() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         String expectedTopLinks = "Все новости\n" + "Эпидемия коронавируса\n" + "Наука и космос\n" + "О погоде\n" + "Пожары в России\n" + "Природа\n" + "Авто\n" + "Животные";
         WebElement topLinks = driver.findElement(NewsPageGismeteo.linksList);
         Assertions.assertEquals(expectedTopLinks, topLinks.getAttribute("innerText"), expectedTopLinks + " и " + topLinks.getAttribute("innerText") + " do not match");
+        driver.quit();
     }
 }
