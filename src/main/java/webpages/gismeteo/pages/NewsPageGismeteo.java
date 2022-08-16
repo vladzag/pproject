@@ -10,4 +10,7 @@ public class NewsPageGismeteo extends DefaultPage {
     }
 
     public static final By linksList = new By.ByCssSelector("body > header > div.header-subnav > div.header-container.wrap");
+    public static final By readAlsoElementSelector = new By.ByCssSelector("body > section > div.content-column.column1 > section.section.section-content.section-visible > div.articles-items.js-articles-items");
+
+
 }

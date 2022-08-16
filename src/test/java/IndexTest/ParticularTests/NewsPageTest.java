@@ -37,4 +37,12 @@ public class NewsPageTest extends DefaultPageTest {
         Assertions.assertEquals(expectedTopLinks, topLinks.getAttribute("innerText"), expectedTopLinks + " и " + topLinks.getAttribute("innerText") + " do not match");
         driver.quit();
     }
+    @Test
+    public void readAlsoCounterChildren(){
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
+        String amountOfChildren = "10";
+        WebElement readAlsoField = driver.findElement(NewsPageGismeteo.readAlsoElementSelector);
+        Assertions.assertEquals(amountOfChildren, readAlsoField.getAttribute("childElementCount"), "Количество детей (" + readAlsoField.getAttribute("childElementCount")+") не равно ожидаемому ("+amountOfChildren+")");
+driver.quit();
+    }
 }
