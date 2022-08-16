@@ -19,7 +19,7 @@ public class CommonActivities {
                 driver = new ChromeDriver();
                 break;
             default:
-               // Assertions.fail(osAndBrowser + " is an incorrect combination of OS and browser.");
+                // Assertions.fail(osAndBrowser + " is an incorrect combination of OS and browser.");
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITLY_WAIT_TIME));

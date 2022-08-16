@@ -1,0 +1,11 @@
+webpages/gismeteo/pages/CityPage.class
+webpages/gismeteo/IndexPageGismeteo.class
+webpages/gismeteo/pages/AppsPageGismeteo.class
+common/ConfiguresAndConstants.class
+webpages/defaultData/DefaultPage.class
+common/CommonActivities.class
+webpages/gismeteo/pages/InfoPageGismeteo.class
+common/ConfiguresAndConstants$City.class
+webpages/gismeteo/pages/MapsPageGismeteo.class
+webpages/gismeteo/pages/WeatherPageGismeteo.class
+webpages/gismeteo/pages/NewsPageGismeteo.class

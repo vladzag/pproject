@@ -1,0 +1,7 @@
+IndexTest/ParticularTests/TestPageContents.class
+IndexTest/ParticularTests/SearchToolExactPagesTest.class
+IndexTest/DefaultPageTest.class
+IndexTest/ParticularTests/GeneralTest.class
+IndexTest/ParticularTests/SearchToolTest.class
+IndexTest/ParticularTests/NewsPageTest.class
+IndexTest/ParticularTests/ClickableHeaderLinksTest.class

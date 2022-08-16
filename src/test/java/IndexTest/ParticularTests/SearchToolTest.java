@@ -13,27 +13,4 @@ import java.util.stream.Stream;
 
 public class SearchToolTest extends DefaultPageTest {
 
-    private static Stream<Arguments> requestList() {
-        return Stream.of(
-                Arguments.of("Москва", "https://www.gismeteo.ru/weather-moscow-4368/"),
-                Arguments.of("Moscow", "https://www.gismeteo.ru/weather-moscow-4368/"),
-                Arguments.of("Csphfym", "https://www.gismeteo.ru/weather-syzran-4448/"),
-                Arguments.of("Санкт-Петербург (Пулково)", "https://www.gismeteo.ru/weather-sankt-peterburg-pulkovo-12967/"),
-                Arguments.of("Урю", "https://www.gismeteo.ru/weather-uryupinsk-5045/"),
-                Arguments.of("", "https://www.gismeteo.ru/weather-moscow-4368/"),
-                Arguments.of(" ", "https://www.gismeteo.ru/weather-moscow-4368/"),
-                Arguments.of("Москва", "https://www.gismeteo.ru/weather-moscow-4368/")
-
-                );
-    }
-
-    @ParameterizedTest
-    @MethodSource("requestList")
-    public void searchFieldTest(String searchRequest, String searchResult) throws InterruptedException {
-        defaultPage.openWebPages("https://www.gismeteo.ru/");
-        indexPage.searchFieldWithText(searchRequest);
-        Thread.sleep(3000);
-        clickElement(IndexPageGismeteo.firstItemInSearch);
-        Assertions.assertEquals(searchResult, driver.getCurrentUrl(), driver.getCurrentUrl() + " and " + searchResult + " do not match");
-    }
 }

@@ -8,6 +8,7 @@ import webpages.defaultData.DefaultPage;
 import webpages.gismeteo.IndexPageGismeteo;
 
 public class DefaultPageTest {
+
     protected WebDriver driver = CommonActivities.createDriver();
     protected IndexPageGismeteo indexPage = new IndexPageGismeteo(driver);
     protected DefaultPage defaultPage = new DefaultPage(driver);
@@ -16,17 +17,8 @@ public class DefaultPageTest {
         driver.findElement(byName).click();
     }
 
-
     public String getText(By byName) {
         return driver.findElement(byName).getText();
     }
 
-    @BeforeEach
-    public void beforeEachMethod() {
-    }
-
-    @AfterEach
-    public void afterEachMethod() {
-        driver.quit();
-    }
 }
