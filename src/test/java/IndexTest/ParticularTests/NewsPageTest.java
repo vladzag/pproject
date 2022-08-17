@@ -2,13 +2,13 @@ package IndexTest.ParticularTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
-import org.junit.After;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.NewsPageGismeteo;
+
+import java.util.*;
 
 public class NewsPageTest extends DefaultPageTest {
 /*
@@ -30,11 +30,40 @@ public class NewsPageTest extends DefaultPageTest {
     }
 
     @Test
+    public void someTestName() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
+        WebElement someElement = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
+        List<WebElement> someElements = someElement.findElements(By.className("article-item"));
+        for (WebElement articleItem : someElements) {
+            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/", articleItem.getAttribute("baseURI"), "URLs do not match");
+            Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
+        }
+        driver.quit();
+    }
+
+    @Test
     public void checkTopLinks() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
-        String expectedTopLinks = "Все новости\n" + "Эпидемия коронавируса\n" + "Наука и космос\n" + "О погоде\n" + "Пожары в России\n" + "Природа\n" + "Авто\n" + "Животные";
+        ArrayList<String> topLinksSet = new ArrayList<String>();
+        topLinksSet.add("Все новости");
+        topLinksSet.add("Авто");
+        topLinksSet.add("Животные");
+        topLinksSet.add("Наука и космос");
+        topLinksSet.add("О погоде");
+        topLinksSet.add("Пожары в России");
+        topLinksSet.add("Природа");
+        topLinksSet.add("Эпидемия коронавируса");
         WebElement topLinks = driver.findElement(NewsPageGismeteo.linksList);
-        Assertions.assertEquals(expectedTopLinks, topLinks.getAttribute("innerText"), expectedTopLinks + " и " + topLinks.getAttribute("innerText") + " do not match");
+        topLinksSet.contains(Collections.singleton(topLinks.getAttribute("innerText")));
+        driver.quit();
+    }
+
+    @Test
+    public void countElementsFirstColumn() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
+        WebElement firstColumnTab = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
+        String amountOfChildren = "7";
+        Assertions.assertEquals(amountOfChildren, firstColumnTab.getAttribute("childElementCount"), "Количество детей (" + firstColumnTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
         driver.quit();
     }
 
@@ -47,4 +76,30 @@ public class NewsPageTest extends DefaultPageTest {
         driver.quit();
     }
 
+    @Test
+    public void explainingRFCountChildren() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
+        String amountOfChildren = "9";
+        WebElement explainingRFTab = driver.findElement(NewsPageGismeteo.explainingRFTabSelector);
+        Assertions.assertEquals(amountOfChildren, explainingRFTab.getAttribute("childElementCount"), "Количество детей (" + explainingRFTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
+        driver.quit();
+    }
+
+    @Test
+    public void TwentyFourSMICountChildren() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
+        String amountOfChildren = "11";
+        WebElement twentySMIFourTab = driver.findElement(NewsPageGismeteo.twentyFourSMITabSelector);
+        Assertions.assertEquals(amountOfChildren, twentySMIFourTab.getAttribute("childElementCount"), "Количество детей (" + twentySMIFourTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
+        driver.quit();
+    }
+
+    @Test
+    public void MoscowTwentyFourCountChildren() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
+        String amountOfChildren = "8";
+        WebElement moscowTwentyFourFourTab = driver.findElement(NewsPageGismeteo.moscowTwentyFourTabSelector);
+        Assertions.assertEquals(amountOfChildren, moscowTwentyFourFourTab.getAttribute("childElementCount"), "Количество детей (" + moscowTwentyFourFourTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
+        driver.quit();
+    }
 }
