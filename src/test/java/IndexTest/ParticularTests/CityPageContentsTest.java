@@ -3,10 +3,7 @@ package IndexTest.ParticularTests;
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import webpages.gismeteo.IndexPageGismeteo;
@@ -17,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static webpages.gismeteo.pages.CityPage.*;
 
 
-public class TestPageContents extends DefaultPageTest {
+public class CityPageContentsTest extends DefaultPageTest {
 
     ConfiguresAndConstants.City currentCity = new ConfiguresAndConstants.City("voronezh", 5026);
 

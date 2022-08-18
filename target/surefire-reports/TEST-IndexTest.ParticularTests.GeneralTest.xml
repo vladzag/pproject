@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="IndexTest.ParticularTests.GeneralTest" time="42.688" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="IndexTest.ParticularTests.GeneralTest" time="30.759" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -58,7 +58,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="ClickableHeaderLinksTest" classname="IndexTest.ParticularTests.GeneralTest" time="20.647"/>
-  <testcase name="deleteAllCookiesLoadingTime" classname="IndexTest.ParticularTests.GeneralTest" time="12.74"/>
-  <testcase name="replaceYandexCookie" classname="IndexTest.ParticularTests.GeneralTest" time="9.298"/>
+  <testcase name="ClickableHeaderLinksTest" classname="IndexTest.ParticularTests.GeneralTest" time="16.113"/>
+  <testcase name="deleteAllCookiesLoadingTime" classname="IndexTest.ParticularTests.GeneralTest" time="7.921"/>
+  <testcase name="replaceYandexCookie" classname="IndexTest.ParticularTests.GeneralTest" time="6.619"/>
 </testsuite>

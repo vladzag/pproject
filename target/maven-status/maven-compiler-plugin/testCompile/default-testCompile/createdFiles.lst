@@ -1,7 +1,12 @@
-IndexTest/ParticularTests/TestPageContents.class
-IndexTest/ParticularTests/SearchToolExactPagesTest.class
+IndexTest/ParticularTests/CoronavirusNewsPageTest.class
+IndexTest/ParticularTests/AnimalsNewsPageTest.class
 IndexTest/DefaultPageTest.class
+IndexTest/ParticularTests/WeatherNewsPageTest.class
+IndexTest/ParticularTests/UXTests.class
 IndexTest/ParticularTests/GeneralTest.class
-IndexTest/ParticularTests/SearchToolTest.class
+IndexTest/ParticularTests/ScienceNewsPageTest.class
+IndexTest/ParticularTests/CityPageContentsTest.class
+IndexTest/ParticularTests/AutoNewsPageTest.class
 IndexTest/ParticularTests/NewsPageTest.class
-IndexTest/ParticularTests/ClickableHeaderLinksTest.class
+IndexTest/ParticularTests/WildfireNewsPageTest.class
+IndexTest/ParticularTests/NatureNewsPageTest.class
