@@ -29,7 +29,7 @@ public class CityPageContentsTest extends DefaultPageTest {
     public void superiorPartWeatherApp() {
         defaultPage.openWebPages(cityNameURL);
         clickElement(nowWeatherSelector);
-        Assertions.assertEquals(cityNameURL + "now", driver.getCurrentUrl(), cityNameURL + "now/" + " и " + driver.getCurrentUrl() + " неверные");
+        Assertions.assertEquals(cityNameURL + "now/", driver.getCurrentUrl(), cityNameURL + "now/" + " и " + driver.getCurrentUrl() + " неверные");
         clickElement(todayWeatherSelector);
         Assertions.assertEquals(cityNameURL, driver.getCurrentUrl(), cityNameURL + " и " + driver.getCurrentUrl() + " неверные");
         clickElement(nextDayWeatherSelector);

@@ -34,7 +34,7 @@ public class WildfireNewsPageTest extends DefaultPageTest {
     @Test
     public void wildfireCheckTopLinks() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/wildfire/");
-        ArrayList<String> topLinksSet = new ArrayList<String>();
+        ArrayList<String> topLinksSet = new ArrayList<>();
         topLinksSet.add("Все новости");
         topLinksSet.add("Авто");
         topLinksSet.add("Животные");
@@ -79,7 +79,7 @@ public class WildfireNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void explainingRFCountChildrenWildfireews() {
+    public void explainingRFCountChildrenWildfireNews() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/wildfire/");
         String amountOfChildren = "9";
         WebElement explainingRFTab = driver.findElement(NewsPageGismeteo.explainingRFTabSelector);
@@ -132,8 +132,8 @@ public class WildfireNewsPageTest extends DefaultPageTest {
 
     @Test
     public void clickMoreNewsButtonWildfireNews() {
-        Integer maxAmountOfClicks = 100;
-        Integer amountOfClicks = 0;
+        int maxAmountOfClicks = 100;
+        int amountOfClicks = 0;
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/wildfire/");
         WebElement moreNewsButton = driver.findElement(NewsPageGismeteo.readMoreNewsFirstColumnTabSelector);
         while (moreNewsButton.isDisplayed() && amountOfClicks <= maxAmountOfClicks) {

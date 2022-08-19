@@ -34,7 +34,7 @@ public class ScienceNewsPageTest extends DefaultPageTest {
     @Test
     public void natureCheckTopLinks() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
-        ArrayList<String> topLinksSet = new ArrayList<String>();
+        ArrayList<String> topLinksSet = new ArrayList<>();
         topLinksSet.add("Все новости");
         topLinksSet.add("Авто");
         topLinksSet.add("Животные");
@@ -132,8 +132,8 @@ public class ScienceNewsPageTest extends DefaultPageTest {
 
     @Test
     public void clickMoreNewsButtonScienceNews() {
-        Integer maxAmountOfClicks = 100;
-        Integer amountOfClicks = 0;
+        int maxAmountOfClicks = 100;
+        int amountOfClicks = 0;
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         WebElement moreNewsButton = driver.findElement(NewsPageGismeteo.readMoreNewsFirstColumnTabSelector);
         while (moreNewsButton.isDisplayed() && amountOfClicks <= maxAmountOfClicks) {

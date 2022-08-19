@@ -63,7 +63,7 @@ public class NewsPageTest extends DefaultPageTest {
     public void countElementsFirstColumn() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         WebElement firstColumnTab = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
-        String amountOfChildren = "7";
+        String amountOfChildren = "10";
         Assertions.assertEquals(amountOfChildren, firstColumnTab.getAttribute("childElementCount"), "Количество детей (" + firstColumnTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
         driver.quit();
     }
