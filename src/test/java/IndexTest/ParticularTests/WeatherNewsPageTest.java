@@ -34,7 +34,7 @@ public class WeatherNewsPageTest extends DefaultPageTest {
     @Test
     public void weatherCheckTopLinks() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
-        ArrayList<String> topLinksSet = new ArrayList<String>();
+        ArrayList<String> topLinksSet = new ArrayList<>();
         topLinksSet.add("Все новости");
         topLinksSet.add("Авто");
         topLinksSet.add("Животные");
@@ -132,8 +132,8 @@ public class WeatherNewsPageTest extends DefaultPageTest {
 
     @Test
     public void clickMoreNewsButtonWeatherNews() {
-        Integer maxAmountOfClicks = 100;
-        Integer amountOfClicks = 0;
+        int maxAmountOfClicks = 100;
+        int amountOfClicks = 0;
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
         WebElement moreNewsButton = driver.findElement(NewsPageGismeteo.readMoreNewsFirstColumnTabSelector);
         while (moreNewsButton.isDisplayed() && amountOfClicks <= maxAmountOfClicks) {
