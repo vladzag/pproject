@@ -20,7 +20,7 @@ public class MapsGeneralTests extends DefaultPageTest {
     }
 
     @Test
-    public void someTestName() {
+    public void checkForTimeZoneButtons() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
         clickElement(MapsPageGismeteo.timeZoneSelector);
         List<WebElement> timeZoneOption = driver.findElements(MapsPageGismeteo.dropDownMenuItemsSelector);
