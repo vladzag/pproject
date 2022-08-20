@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.MapsPageGismeteo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MapsGeneralTests extends DefaultPageTest {
@@ -19,25 +20,23 @@ public class MapsGeneralTests extends DefaultPageTest {
     }
 
     @Test
-    public void someTestName() {
+    public void checkForTimeZoneButtons() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
         clickElement(MapsPageGismeteo.timeZoneSelector);
         List<WebElement> timeZoneOption = driver.findElements(MapsPageGismeteo.dropDownMenuItemsSelector);
-        for (int i = 0; i == 3; i++) {
+        for (int i = 0; i <= 2; i++) {
             timeZoneOption.remove(0);
         }
-        List<String> stringList = new ArrayList<String>();
-        for (WebElement element : timeZoneOption ) {
-
-            stringList.add(element.getText().toString());
-            //System.out.println(element.getText());
-        }
-
+        int timeZoneValue = -12;
         for (WebElement timeZoneObject : timeZoneOption) {
-            int timeZoneValue = -12;
-            Assertions.assertEquals(timeZoneValue, timeZoneObject.getAttribute("innerHTML"), "\n Something went wrong with timezones doest not match " + timeZoneObject.getAttribute("innerHTML"));
+            String timeZoneString = String.valueOf(timeZoneValue);
+            if (timeZoneValue > 0) {
+                timeZoneString = "+" + timeZoneString;
+            }
+            Assertions.assertEquals(timeZoneString, timeZoneObject.getAttribute("innerHTML"), "\n Something went wrong with timezones doest not match " + timeZoneObject.getAttribute("innerHTML"));
             timeZoneValue++;
         }
+
         //clickElement(MapsPageGismeteo.dropDownMenuItemsSelector);}
 
 
