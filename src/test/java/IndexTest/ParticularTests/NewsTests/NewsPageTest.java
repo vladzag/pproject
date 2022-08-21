@@ -1,4 +1,4 @@
-package IndexTest.ParticularTests;
+package IndexTest.ParticularTests.NewsTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
@@ -8,11 +8,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.NewsPageGismeteo;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
-public class CoronavirusNewsPageTest extends DefaultPageTest {
+public class NewsPageTest extends DefaultPageTest {
 /*
     @BeforeEach
     public void beforeEachMethod() {
@@ -25,16 +23,16 @@ public class CoronavirusNewsPageTest extends DefaultPageTest {
     }*/
 
     @Test
-    public void checkCoronavirusURL() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus");
-        Assertions.assertEquals("https://www.gismeteo.ru/news/coronavirus/", driver.getCurrentUrl(), "https://www.gismeteo.ru/news/coronavirus/" + driver.getCurrentUrl() + " не соответствуют");
+    public void checkNewsURL() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
+        Assertions.assertEquals("https://www.gismeteo.ru/news/", driver.getCurrentUrl(), "https://www.gismeteo.ru/news/" + driver.getCurrentUrl() + " не соответствуют");
         driver.quit();
     }
 
     @Test
-    public void coronavirusCheckTopLinks() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus/");
-        ArrayList<String> topLinksSet = new ArrayList<>();
+    public void checkTopLinks() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
+        ArrayList<String> topLinksSet = new ArrayList<String>();
         topLinksSet.add("Все новости");
         topLinksSet.add("Авто");
         topLinksSet.add("Животные");
@@ -44,13 +42,31 @@ public class CoronavirusNewsPageTest extends DefaultPageTest {
         topLinksSet.add("Природа");
         topLinksSet.add("Эпидемия коронавируса");
         WebElement topLinks = driver.findElement(NewsPageGismeteo.linksList);
-        topLinksSet.contains(Collections.singleton(topLinks.getAttribute("innerText")));
+        List<WebElement> topLinksNames = topLinks.findElements(By.className("header-subnav-link"));
+        ArrayList<String> someStringList = new ArrayList<String>();
+        for (WebElement elementName : topLinksNames) {
+            someStringList.add(elementName.getText());
+        }
+        Assertions.assertEquals(someStringList.containsAll(topLinksSet), topLinksSet.containsAll(someStringList));
         driver.quit();
     }
 
     @Test
-    public void coronavirusNewsCountElementsFirstColumn() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus/");
+    public void getTitlesTopSevenNewsTab() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
+        WebElement someElement = driver.findElement(NewsPageGismeteo.topSevenNewsSelector);
+        List<WebElement> someElements = someElement.findElements(By.className("card-wrap"));
+        for (WebElement articleItem : someElements) {
+            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/", articleItem.getAttribute("baseURI"), "URLs do not match");
+            Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
+        }
+        driver.quit();
+    }
+
+
+    @Test
+    public void countElementsFirstColumn() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         WebElement firstColumnTab = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         String amountOfChildren = "10";
         Assertions.assertEquals(amountOfChildren, firstColumnTab.getAttribute("childElementCount"), "Количество детей (" + firstColumnTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
@@ -58,20 +74,8 @@ public class CoronavirusNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void getTitlesTopSevenCoronavirusNewsTab() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus/");
-        WebElement someElement = driver.findElement(NewsPageGismeteo.topSevenNewsSelector);
-        List<WebElement> someElements = someElement.findElements(By.className("card-wrap"));
-        for (WebElement articleItem : someElements) {
-            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/coronavirus/", articleItem.getAttribute("baseURI"), "URLs do not match");
-            Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
-        }
-        driver.quit();
-    }
-
-    @Test
-    public void readAlsoCounterChildrenCoronavirusNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus/");
+    public void readAlsoCounterChildren() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         String amountOfChildren = "10";
         WebElement readAlsoField = driver.findElement(NewsPageGismeteo.readAlsoElementSelector);
         Assertions.assertEquals(amountOfChildren, readAlsoField.getAttribute("childElementCount"), "Количество детей (" + readAlsoField.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
@@ -79,8 +83,8 @@ public class CoronavirusNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void explainingRFCountChildrenCoronavirusNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus/");
+    public void explainingRFCountChildren() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         String amountOfChildren = "9";
         WebElement explainingRFTab = driver.findElement(NewsPageGismeteo.explainingRFTabSelector);
         Assertions.assertEquals(amountOfChildren, explainingRFTab.getAttribute("childElementCount"), "Количество детей (" + explainingRFTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
@@ -88,8 +92,8 @@ public class CoronavirusNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void TwentyFourSMICountChildrenCoronavirusNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus/");
+    public void TwentyFourSMICountChildren() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         String amountOfChildren = "11";
         WebElement twentySMIFourTab = driver.findElement(NewsPageGismeteo.twentyFourSMITabSelector);
         Assertions.assertEquals(amountOfChildren, twentySMIFourTab.getAttribute("childElementCount"), "Количество детей (" + twentySMIFourTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
@@ -97,8 +101,8 @@ public class CoronavirusNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void MoscowTwentyFourCountChildrenCoronavirusNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus/");
+    public void MoscowTwentyFourCountChildren() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         String amountOfChildren = "8";
         WebElement moscowTwentyFourFourTab = driver.findElement(NewsPageGismeteo.moscowTwentyFourTabSelector);
         Assertions.assertEquals(amountOfChildren, moscowTwentyFourFourTab.getAttribute("childElementCount"), "Количество детей (" + moscowTwentyFourFourTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
@@ -106,35 +110,40 @@ public class CoronavirusNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void getTitlesReadAlsoTabCoronavirusNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus/");
+    public void getTitlesReadAlsoTab() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         WebElement someElement = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         List<WebElement> someElements = someElement.findElements(By.className("article-item"));
         for (WebElement articleItem : someElements) {
-            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/coronavirus/", articleItem.getAttribute("baseURI"), "URLs do not match");
+            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/", articleItem.getAttribute("baseURI"), "URLs do not match");
             Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
         }
         driver.quit();
     }
 
     @Test
-    public void checkMoreNewsButtonCoronavirusNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus/");
+    public void checkMoreNewsButton() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         clickElement(NewsPageGismeteo.readMoreNewsFirstColumnTabSelector);
         WebElement someElement = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         List<WebElement> someElements = someElement.findElements(By.className("article-item"));
+        Integer countArticles = 0;
         for (WebElement articleItem : someElements) {
-            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/coronavirus/", articleItem.getAttribute("baseURI"), "URLs do not match");
+            System.out.println(articleItem.getAttribute("innerText"));
+            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/", articleItem.getAttribute("baseURI"), "URLs do not match");
             Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
+            countArticles++;
         }
+        System.out.println(countArticles);
         driver.quit();
     }
 
     @Test
-    public void clickMoreNewsButtonCoronavirusNews() {
-        int maxAmountOfClicks = 100;
-        int amountOfClicks = 0;
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/coronavirus/");
+    public void clickMoreNewsButton() {
+        Integer maxAmountOfClicks = 100;
+        Integer amountOfClicks = 0;
+        Integer countArticles = 0;
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/");
         WebElement moreNewsButton = driver.findElement(NewsPageGismeteo.readMoreNewsFirstColumnTabSelector);
         while (moreNewsButton.isDisplayed() && amountOfClicks <= maxAmountOfClicks) {
             clickElement(NewsPageGismeteo.readMoreNewsFirstColumnTabSelector);
@@ -143,8 +152,9 @@ public class CoronavirusNewsPageTest extends DefaultPageTest {
         WebElement someElement = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         List<WebElement> someElements = someElement.findElements(By.className("article-item"));
         for (WebElement articleItem : someElements) {
-            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/coronavirus/", articleItem.getAttribute("baseURI"), "URLs do not match");
+            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/", articleItem.getAttribute("baseURI"), "URLs do not match");
             Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
+            countArticles++;
         }
         driver.quit();
     }
