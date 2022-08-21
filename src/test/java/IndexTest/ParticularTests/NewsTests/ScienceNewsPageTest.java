@@ -1,4 +1,4 @@
-package IndexTest.ParticularTests;
+package IndexTest.ParticularTests.NewsTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class WeatherNewsPageTest extends DefaultPageTest {
+public class ScienceNewsPageTest extends DefaultPageTest {
 /*
     @BeforeEach
     public void beforeEachMethod() {
@@ -25,15 +25,15 @@ public class WeatherNewsPageTest extends DefaultPageTest {
     }*/
 
     @Test
-    public void checkWeatherURL() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather");
-        Assertions.assertEquals("https://www.gismeteo.ru/news/weather/", driver.getCurrentUrl(), "https://www.gismeteo.ru/news/weather/" + driver.getCurrentUrl() + " не соответствуют");
+    public void checkScienceURL() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
+        Assertions.assertEquals("https://www.gismeteo.ru/news/science/", driver.getCurrentUrl(), "https://www.gismeteo.ru/news/science/" + driver.getCurrentUrl() + " не соответствуют");
         driver.quit();
     }
 
     @Test
-    public void weatherCheckTopLinks() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
+    public void natureCheckTopLinks() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         ArrayList<String> topLinksSet = new ArrayList<>();
         topLinksSet.add("Все новости");
         topLinksSet.add("Авто");
@@ -49,8 +49,8 @@ public class WeatherNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void weatherNewsCountElementsFirstColumn() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
+    public void scienceNewsCountElementsFirstColumn() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         WebElement firstColumnTab = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         String amountOfChildren = "10";
         Assertions.assertEquals(amountOfChildren, firstColumnTab.getAttribute("childElementCount"), "Количество детей (" + firstColumnTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
@@ -58,20 +58,20 @@ public class WeatherNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void getTitlesTopSevenWeatherNewsTab() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
+    public void getTitlesTopSevenScienceNewsTab() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         WebElement someElement = driver.findElement(NewsPageGismeteo.topSevenNewsSelector);
         List<WebElement> someElements = someElement.findElements(By.className("card-wrap"));
         for (WebElement articleItem : someElements) {
-            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/weather/", articleItem.getAttribute("baseURI"), "URLs do not match");
+            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/science/", articleItem.getAttribute("baseURI"), "URLs do not match");
             Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
         }
         driver.quit();
     }
 
     @Test
-    public void readAlsoCounterChildrenWeatherNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
+    public void readAlsoCounterChildrenScienceNews() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         String amountOfChildren = "10";
         WebElement readAlsoField = driver.findElement(NewsPageGismeteo.readAlsoElementSelector);
         Assertions.assertEquals(amountOfChildren, readAlsoField.getAttribute("childElementCount"), "Количество детей (" + readAlsoField.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
@@ -79,8 +79,8 @@ public class WeatherNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void explainingRFCountChildrenWeatherNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
+    public void explainingRFCountChildrenScienceNews() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         String amountOfChildren = "9";
         WebElement explainingRFTab = driver.findElement(NewsPageGismeteo.explainingRFTabSelector);
         Assertions.assertEquals(amountOfChildren, explainingRFTab.getAttribute("childElementCount"), "Количество детей (" + explainingRFTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
@@ -88,8 +88,8 @@ public class WeatherNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void TwentyFourSMICountChildrenWeatherNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
+    public void TwentyFourSMICountChildrenScienceNews() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         String amountOfChildren = "11";
         WebElement twentySMIFourTab = driver.findElement(NewsPageGismeteo.twentyFourSMITabSelector);
         Assertions.assertEquals(amountOfChildren, twentySMIFourTab.getAttribute("childElementCount"), "Количество детей (" + twentySMIFourTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
@@ -97,8 +97,8 @@ public class WeatherNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void MoscowTwentyFourCountChildrenWeatherNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
+    public void MoscowTwentyFourCountChildrenScienceNews() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         String amountOfChildren = "8";
         WebElement moscowTwentyFourFourTab = driver.findElement(NewsPageGismeteo.moscowTwentyFourTabSelector);
         Assertions.assertEquals(amountOfChildren, moscowTwentyFourFourTab.getAttribute("childElementCount"), "Количество детей (" + moscowTwentyFourFourTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
@@ -106,35 +106,35 @@ public class WeatherNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void getTitlesReadAlsoTabWeatherNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
+    public void getTitlesReadAlsoTabScienceNews() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         WebElement someElement = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         List<WebElement> someElements = someElement.findElements(By.className("article-item"));
         for (WebElement articleItem : someElements) {
-            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/weather/", articleItem.getAttribute("baseURI"), "URLs do not match");
+            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/science/", articleItem.getAttribute("baseURI"), "URLs do not match");
             Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
         }
         driver.quit();
     }
 
     @Test
-    public void checkMoreNewsButtonWeatherNews() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
+    public void checkMoreNewsButtonScienceNews() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         clickElement(NewsPageGismeteo.readMoreNewsFirstColumnTabSelector);
         WebElement someElement = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         List<WebElement> someElements = someElement.findElements(By.className("article-item"));
         for (WebElement articleItem : someElements) {
-            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/weather/", articleItem.getAttribute("baseURI"), "URLs do not match");
+            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/science/", articleItem.getAttribute("baseURI"), "URLs do not match");
             Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
         }
         driver.quit();
     }
 
     @Test
-    public void clickMoreNewsButtonWeatherNews() {
+    public void clickMoreNewsButtonScienceNews() {
         int maxAmountOfClicks = 100;
         int amountOfClicks = 0;
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/weather/");
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/science/");
         WebElement moreNewsButton = driver.findElement(NewsPageGismeteo.readMoreNewsFirstColumnTabSelector);
         while (moreNewsButton.isDisplayed() && amountOfClicks <= maxAmountOfClicks) {
             clickElement(NewsPageGismeteo.readMoreNewsFirstColumnTabSelector);
@@ -143,7 +143,7 @@ public class WeatherNewsPageTest extends DefaultPageTest {
         WebElement someElement = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         List<WebElement> someElements = someElement.findElements(By.className("article-item"));
         for (WebElement articleItem : someElements) {
-            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/weather/", articleItem.getAttribute("baseURI"), "URLs do not match");
+            Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/science/", articleItem.getAttribute("baseURI"), "URLs do not match");
             Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
         }
         driver.quit();

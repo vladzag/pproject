@@ -10,10 +10,8 @@ public class MapsPageGismeteo extends DefaultPage {
     }
 
     public static final By timeZoneSelector = new By.ByCssSelector("body > section > div > section > div.maps-header > div.dropdown-handle");
-    public static final By dropDownElementSelector = new By.ByCssSelector("body > section > div > section > div.maps-header > div.dropdown-menu.js-tz");
-public static final By dropDownMenuItemsSelector = new By.ByClassName("dropdown-menu-item");
-//ByXPath("*[@class='dropdown-menu-item' and text()!='Сибирь'||'Европа'||'Дальний Восток']");
-//ByClassName("dropdown-menu-item");
+    public static final By dateAndTimeListSelector = new By.ByCssSelector("body > section > div > section > div.maps-main > div.right-side > div");
+    public static final By dropDownMenuItemsSelector = new By.ByClassName("dropdown-menu-item");
 
-public static final By getDropDownMenuItemsSelector2 = new By.ByCssSelector("body > section > div > section > div.maps-header > div.dropdown-menu.js-tz > div:nth-child(1)");
+    public static final By currentMapSelector = new By.ByCssSelector("body > section > div > section > div.maps-main > div.left-side > section.map-container > div.img-slides.eur > div.background.layout-3 > svg");
 }

@@ -1,4 +1,4 @@
-package IndexTest.ParticularTests;
+package IndexTest.ParticularTests.NewsTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
