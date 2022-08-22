@@ -21,10 +21,6 @@ public class DefaultPageTest {
         driver.findElement(byName).click();
     }
 
-    public void hoverOverElement (By byName){
-        action.moveToElement((WebElement) byName).build().perform();
-    }
-
     public String getText(By byName) {
         return driver.findElement(byName).getText();
     }

@@ -12,6 +12,7 @@ public class MapsPageGismeteo extends DefaultPage {
     public static final By timeZoneSelector = new By.ByCssSelector("body > section > div > section > div.maps-header > div.dropdown-handle");
     public static final By dateAndTimeListSelector = new By.ByCssSelector("body > section > div > section > div.maps-main > div.right-side > div");
     public static final By dropDownMenuItemsSelector = new By.ByClassName("dropdown-menu-item");
-
+    public static final By regionDropDownSelector = new By.ByCssSelector("body > header > div.header-subnav > div.header-container.wrap > div > div > div.subnav-menu-item.dropdown-handle");
     public static final By currentMapSelector = new By.ByCssSelector("body > section > div > section > div.maps-main > div.left-side > section.map-container > div.img-slides.eur > div.background.layout-3 > svg");
+    public static final By mapLegendDescriptionSelector = new By.ByCssSelector("body > section > div > section > div.maps-main > div.left-side > section.map-legend > div.values.values-prc");
 }
