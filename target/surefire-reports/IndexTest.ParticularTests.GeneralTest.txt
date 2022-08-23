@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: IndexTest.ParticularTests.GeneralTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 46.596 s - in IndexTest.ParticularTests.GeneralTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.854 s - in IndexTest.ParticularTests.GeneralTest

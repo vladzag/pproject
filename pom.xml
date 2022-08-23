@@ -30,7 +30,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
+            <version>5.9.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -38,6 +38,7 @@
             <artifactId>selenium-java</artifactId>
             <version>4.3.0</version>
         </dependency>
+
     </dependencies>
 
     <build>

@@ -25,14 +25,14 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }*/
 
     @Test
-    public void checkAnimalsURL() {
+     void checkAnimalsURL() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
         Assertions.assertEquals("https://www.gismeteo.ru/news/animals/", driver.getCurrentUrl(), "https://www.gismeteo.ru/news/animals/" + driver.getCurrentUrl() + " не соответствуют");
         driver.quit();
     }
 
     @Test
-    public void animalsCheckTopLinks() {
+     void animalsCheckTopLinks() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
         ArrayList<String> topLinksSet = new ArrayList<>();
         topLinksSet.add("Все новости");
@@ -49,7 +49,7 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void animalsNewsCountElementsFirstColumn() {
+     void animalsNewsCountElementsFirstColumn() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
         WebElement firstColumnTab = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         String amountOfChildren = "10";
@@ -58,7 +58,7 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void getTitlesTopSevenAnimalsNewsTab() {
+     void getTitlesTopSevenAnimalsNewsTab() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
         WebElement someElement = driver.findElement(NewsPageGismeteo.topSevenNewsSelector);
         List<WebElement> someElements = someElement.findElements(By.className("card-wrap"));
@@ -70,7 +70,7 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void readAlsoCounterChildrenAnimalsNews() {
+     void readAlsoCounterChildrenAnimalsNews() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
         String amountOfChildren = "10";
         WebElement readAlsoField = driver.findElement(NewsPageGismeteo.readAlsoElementSelector);
@@ -79,7 +79,7 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void explainingRFCountChildrenAnimalsNews() {
+     void explainingRFCountChildrenAnimalsNews() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
         String amountOfChildren = "9";
         WebElement explainingRFTab = driver.findElement(NewsPageGismeteo.explainingRFTabSelector);
@@ -88,7 +88,7 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void TwentyFourSMICountChildrenAnimalsNews() {
+     void TwentyFourSMICountChildrenAnimalsNews() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
         String amountOfChildren = "11";
         WebElement twentySMIFourTab = driver.findElement(NewsPageGismeteo.twentyFourSMITabSelector);
@@ -97,7 +97,7 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void MoscowTwentyFourCountChildrenAnimalsNews() {
+     void MoscowTwentyFourCountChildrenAnimalsNews() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
         String amountOfChildren = "8";
         WebElement moscowTwentyFourFourTab = driver.findElement(NewsPageGismeteo.moscowTwentyFourTabSelector);
@@ -106,7 +106,7 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void getTitlesReadAlsoTabAnimalsNews() {
+     void getTitlesReadAlsoTabAnimalsNews() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
         WebElement someElement = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         List<WebElement> someElements = someElement.findElements(By.className("article-item"));
@@ -118,7 +118,7 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void checkMoreNewsButtonAnimalsNews() {
+     void checkMoreNewsButtonAnimalsNews() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
         clickElement(NewsPageGismeteo.readMoreNewsFirstColumnTabSelector);
         WebElement someElement = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
@@ -131,7 +131,7 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-    public void clickMoreNewsButtonAnimalsNews() {
+     void clickMoreNewsButtonAnimalsNews() {
         int maxAmountOfClicks = 100;
         int amountOfClicks = 0;
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "news/animals/");
