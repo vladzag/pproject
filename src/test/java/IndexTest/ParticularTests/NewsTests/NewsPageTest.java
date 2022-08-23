@@ -129,12 +129,10 @@ public class NewsPageTest extends DefaultPageTest {
         List<WebElement> someElements = someElement.findElements(By.className("article-item"));
         Integer countArticles = 0;
         for (WebElement articleItem : someElements) {
-            System.out.println(articleItem.getAttribute("innerText"));
             Assertions.assertEquals(ConfiguresAndConstants.defaultURL + "news/", articleItem.getAttribute("baseURI"), "URLs do not match");
             Assertions.assertEquals(articleItem.getAttribute("innerText"), articleItem.getAttribute("outerText"));
             countArticles++;
         }
-        System.out.println(countArticles);
         driver.quit();
     }
 
