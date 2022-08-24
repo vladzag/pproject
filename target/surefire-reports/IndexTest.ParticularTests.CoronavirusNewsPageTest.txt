@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: IndexTest.ParticularTests.CoronavirusNewsPageTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 159.043 s - in IndexTest.ParticularTests.CoronavirusNewsPageTest

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 76.347 s - in IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest

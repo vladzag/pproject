@@ -20,9 +20,7 @@ public class CityPageContentsTest extends DefaultPageTest {
 
     String cityNameURL = ConfiguresAndConstants.defaultURL + "weather-" + currentCity.getCityName() + "-" + currentCity.getCityID() + "/";
     String currentCityWeatherTitle = "GISMETEO: Погода в Воронеже сегодня, прогноз погоды Воронеж на сегодня, Воронеж (городской округ), Воронежская область, Россия";
-
     String currentCityWeatherRadar = currentCity.cityRadar(currentCity.getCityName(), currentCity.getCityID());
-
     String currentCityDairy = currentCity.cityDairy(currentCity.getCityID());
 
     @Test
@@ -33,7 +31,7 @@ public class CityPageContentsTest extends DefaultPageTest {
         clickElement(todayWeatherSelector);
         Assertions.assertEquals(cityNameURL, driver.getCurrentUrl(), cityNameURL + " и " + driver.getCurrentUrl() + " неверные");
         clickElement(nextDayWeatherSelector);
-        Assertions.assertEquals(cityNameURL + "tomorrow", driver.getCurrentUrl(), cityNameURL + "tomorrow/" + " и " + driver.getCurrentUrl() + " неверные");
+        Assertions.assertEquals(cityNameURL + "tomorrow/", driver.getCurrentUrl(), cityNameURL + "tomorrow/" + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
 
@@ -90,7 +88,7 @@ public class CityPageContentsTest extends DefaultPageTest {
 
 
     @Test
-    public void clickWindspeedTomorrow() {
+    public void clickWindSpeedTomorrow() {
         defaultPage.openWebPages(cityNameURL);
         Assertions.assertEquals(currentCityWeatherTitle, driver.getTitle(), driver.getTitle() + " и " + currentCityWeatherTitle + " не совпадают");
         Actions moveCursor = new Actions(driver);
