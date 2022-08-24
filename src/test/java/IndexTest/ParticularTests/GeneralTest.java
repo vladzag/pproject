@@ -121,7 +121,6 @@ public class GeneralTest extends DefaultPageTest {
         Thread.sleep(3000);
         clickElement(IndexPageGismeteo.firstItemInSearch);
         Assertions.assertEquals(searchResult, driver.getCurrentUrl(), driver.getCurrentUrl() + " and " + searchResult + " do not match");
-
         driver.quit();
     }
 
