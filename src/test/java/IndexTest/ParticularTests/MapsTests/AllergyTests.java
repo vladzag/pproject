@@ -1,7 +1,6 @@
 package IndexTest.ParticularTests.MapsTests;
 
 import IndexTest.DefaultPageTest;
-import com.google.common.collect.Maps;
 import common.ConfiguresAndConstants;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -13,12 +12,13 @@ import org.openqa.selenium.WebElement;
 import webpages.gismeteo.IndexPageGismeteo;
 import webpages.gismeteo.pages.MapsPageGismeteo;
 
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -77,8 +77,9 @@ public class AllergyTests extends DefaultPageTest {
         driver.quit();
     }
 
+    //TODO починить следующие три теста, они хрупкие с утра, когда показывается вчерашний день.
     @Test
-    public void getMapLegendToday() {
+    public void checkMapLegendToday() {
         String pattern = "EE dd MMM";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern, new Locale("ru", "RU"));
         String date = simpleDateFormat.format(new Date());
@@ -88,45 +89,29 @@ public class AllergyTests extends DefaultPageTest {
         driver.quit();
     }
 
+
     @Test
-    public void getMapLegendTomorrow() throws ParseException {
-        String pattern = "EE dd MMM";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern, new Locale("ru", "RU"));
-        String date = simpleDateFormat.format(new Date());
-        Calendar c = Calendar.getInstance();
-        System.out.println("\n---\n - c (avant tout) " + c);
-        c.setTime(simpleDateFormat.parse(date));
-        System.out.println("\n---\n - c (before) " + c);
-        c.add(Calendar.DATE, 1);
-        System.out.println("\n---\n - c (after) " + c);
-        date = simpleDateFormat.format(c.getTime());
-        System.out.println("\n---\n - date " + date);
-        String date2 = date.substring(0, 1).toUpperCase() + date.substring(1).replace(".", "") + " завтра";
-        System.out.println("\n---\n - date2 "+date2);
+    public void checkMapLegendTomorrow() {
+        Instant timestamp = Instant.now().plus(1, ChronoUnit.DAYS);
+        LocalDateTime ldt = LocalDateTime.ofInstant(timestamp, ZoneId.systemDefault());
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("EE dd MMM").withLocale(new Locale("ru"));
+        String stringDateFormatted = ldt.format(format);
+        stringDateFormatted = stringDateFormatted.substring(0, 1).toUpperCase() + stringDateFormatted.substring(1).replace(".", "") + " завтра";
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/allergy/");
-        System.out.println(date2 + " - date 2\n" + driver.findElement(MapsPageGismeteo.tomorrowDateLegendSelector).getText() + " - findElement");
-        //Assertions.assertEquals(date2, driver.findElement(MapsPageGismeteo.tomorrowDateLegendSelector).getText(), "texts don't match");
+        Assertions.assertEquals(stringDateFormatted, driver.findElement(MapsPageGismeteo.tomorrowDateLegendSelector).getText(), "texts don't match");
         driver.quit();
     }
 
     @Test
-    public void getMapLegendAfterTomvmorrow() throws ParseException {
-        String pattern = "EE dd MMM";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern, new Locale("ru", "RU"));
-        String date = simpleDateFormat.format(new Date());
-        Calendar c = Calendar.getInstance();
-        System.out.println("\n---\n - c (avant tout) " + c);
-        c.setTime(simpleDateFormat.parse(date));
-        System.out.println("\n---\n - c (before) " + c);
-        c.add(Calendar.DATE, 2);
-        System.out.println("\n---\n - c (after) " + c);
-        date = simpleDateFormat.format(c.getTime());
-        System.out.println("\n---\n - date " + date);
-        String date2 = date.substring(0, 1).toUpperCase() + date.substring(1).replace(".", "") + " завтра";
-        System.out.println("\n---\n - date2 "+date2);
+    public void getMapLegendDayAfterTomorrow() {
+        Instant timestamp = Instant.now().plus(2, ChronoUnit.DAYS);
+        LocalDateTime ldt = LocalDateTime.ofInstant(timestamp, ZoneId.systemDefault());
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("EE dd MMM").withLocale(new Locale("ru"));
+        String stringDateFormatted = ldt.format(format);
+        stringDateFormatted = stringDateFormatted.substring(0, 1).toUpperCase() + stringDateFormatted.substring(1).replace(".", "");
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/allergy/");
-        System.out.println(date2 + " - date 2\n" + driver.findElement(MapsPageGismeteo.tomorrowDateLegendSelector).getText() + " - findElement");
-        //Assertions.assertEquals(date2, driver.findElement(MapsPageGismeteo.tomorrowDateLegendSelector).getText(), "texts don't match");
+        Assertions.assertEquals(stringDateFormatted, driver.findElement(MapsPageGismeteo.dayAfterTomorrowDateLegendSelector).getText(), "texts don't match");
         driver.quit();
     }
 }
+
