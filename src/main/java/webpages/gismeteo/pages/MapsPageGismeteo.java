@@ -20,7 +20,10 @@ public class MapsPageGismeteo extends DefaultPage {
     public static final By grassSelector = new By.ByCssSelector("#js-interactive-map > form > div > select > option:nth-child(1)");
 
     public static final By searchInputSelector = new By.ByCssSelector("body > header > div.header-subnav > div.header-container.wrap > div > div.search.js-search > div.search-form.js-search-form > div > input");
+    public static final By yesterdayDateLegendSelector = new By.ByCssSelector("    public static final By todayDateLegendSelector = new By.ByCssSelector(\"body > section > div > section > div.interactive-map-container > div.controls.js-map-controls > div.timeline-wrap.js-timeline-wrap > div > div:nth-child(1) > div.date > span");
+
     public static final By todayDateLegendSelector = new By.ByCssSelector("body > section > div > section > div.interactive-map-container > div.controls.js-map-controls > div.timeline-wrap.js-timeline-wrap > div > div:nth-child(2) > div.date > span");
-public static final By tomorrowDateLegendSelector = new By.ByCssSelector("body > section > div > section > div.interactive-map-container > div.controls.js-map-controls > div.timeline-wrap.js-timeline-wrap > div > div:nth-child(3) > div.date > span");
+    public static final By tomorrowDateLegendSelector = new By.ByCssSelector("body > section > div > section > div.interactive-map-container > div.controls.js-map-controls > div.timeline-wrap.js-timeline-wrap > div > div:nth-child(3) > div.date > span");
+public static final By dayAfterTomorrowDateLegendSelector = new By.ByCssSelector("body > section > div > section > div.interactive-map-container > div.controls.js-map-controls > div.timeline-wrap.js-timeline-wrap > div > div:nth-child(4) > div.date > span");
 
 }
