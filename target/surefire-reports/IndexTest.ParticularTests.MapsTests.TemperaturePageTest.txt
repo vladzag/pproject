@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: IndexTest.ParticularTests.MapsTests.TemperaturePageTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.389 s - in IndexTest.ParticularTests.MapsTests.TemperaturePageTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 85.547 s - in IndexTest.ParticularTests.MapsTests.TemperaturePageTest

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="159.104" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="0.004" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.1.2 org.apache.maven.plugins:maven-surefire-plugin:2.20:test"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.1.2 clean validate compile test"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3"/>
@@ -58,15 +58,20 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="checkMoreNewsButtonAnimalsNews" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="8.027"/>
-  <testcase name="getTitlesReadAlsoTabAnimalsNews" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="8.436"/>
-  <testcase name="readAlsoCounterChildrenAnimalsNews" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="5.55"/>
-  <testcase name="clickMoreNewsButtonAnimalsNews" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="93.037"/>
-  <testcase name="MoscowTwentyFourCountChildrenAnimalsNews" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="7.385"/>
-  <testcase name="animalsNewsCountElementsFirstColumn" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="6.329"/>
-  <testcase name="explainingRFCountChildrenAnimalsNews" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="6.862"/>
-  <testcase name="getTitlesTopSevenAnimalsNewsTab" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="6.576"/>
-  <testcase name="TwentyFourSMICountChildrenAnimalsNews" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="5.398"/>
-  <testcase name="checkAnimalsURL" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="5.475"/>
-  <testcase name="animalsCheckTopLinks" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="6.024"/>
+  <testcase name="initializationError" classname="IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest" time="0.002">
+    <error message="Invalid test class &apos;IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest&apos;:&#10;  1. Method checkMoreNewsButtonAnimalsNews() should be public&#10;  2. Method getTitlesReadAlsoTabAnimalsNews() should be public&#10;  3. Method readAlsoCounterChildrenAnimalsNews() should be public&#10;  4. Method clickMoreNewsButtonAnimalsNews() should be public&#10;  5. Method MoscowTwentyFourCountChildrenAnimalsNews() should be public&#10;  6. Method animalsNewsCountElementsFirstColumn() should be public&#10;  7. Method explainingRFCountChildrenAnimalsNews() should be public&#10;  8. Method getTitlesTopSevenAnimalsNewsTab() should be public&#10;  9. Method TwentyFourSMICountChildrenAnimalsNews() should be public&#10;  10. Method checkAnimalsURL() should be public&#10;  11. Method animalsCheckTopLinks() should be public" type="org.junit.runners.model.InvalidTestClassError">org.junit.runners.model.InvalidTestClassError: 
+Invalid test class 'IndexTest.ParticularTests.NewsTests.AnimalsNewsPageTest':
+  1. Method checkMoreNewsButtonAnimalsNews() should be public
+  2. Method getTitlesReadAlsoTabAnimalsNews() should be public
+  3. Method readAlsoCounterChildrenAnimalsNews() should be public
+  4. Method clickMoreNewsButtonAnimalsNews() should be public
+  5. Method MoscowTwentyFourCountChildrenAnimalsNews() should be public
+  6. Method animalsNewsCountElementsFirstColumn() should be public
+  7. Method explainingRFCountChildrenAnimalsNews() should be public
+  8. Method getTitlesTopSevenAnimalsNewsTab() should be public
+  9. Method TwentyFourSMICountChildrenAnimalsNews() should be public
+  10. Method checkAnimalsURL() should be public
+  11. Method animalsCheckTopLinks() should be public
+</error>
+  </testcase>
 </testsuite>

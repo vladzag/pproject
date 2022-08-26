@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="230.471" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="185.95" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.1.2 org.apache.maven.plugins:maven-surefire-plugin:2.20:test"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.1.2 clean validate compile test"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3"/>
@@ -58,15 +58,15 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="readAlsoCounterChildrenCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="11.182"/>
-  <testcase name="coronavirusCheckTopLinks" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="11.477"/>
-  <testcase name="checkMoreNewsButtonCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="8.345"/>
-  <testcase name="clickMoreNewsButtonCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="152.897"/>
-  <testcase name="coronavirusNewsCountElementsFirstColumn" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="8.396"/>
-  <testcase name="checkCoronavirusURL" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="6.057"/>
-  <testcase name="getTitlesTopSevenCoronavirusNewsTab" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="6.526"/>
-  <testcase name="explainingRFCountChildrenCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="6.492"/>
-  <testcase name="TwentyFourSMICountChildrenCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="5.729"/>
-  <testcase name="MoscowTwentyFourCountChildrenCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="6.441"/>
-  <testcase name="getTitlesReadAlsoTabCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="6.65"/>
+  <testcase name="readAlsoCounterChildrenCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="15.426"/>
+  <testcase name="coronavirusCheckTopLinks" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="8.959"/>
+  <testcase name="checkMoreNewsButtonCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="7.902"/>
+  <testcase name="clickMoreNewsButtonCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="105.803"/>
+  <testcase name="coronavirusNewsCountElementsFirstColumn" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="6.404"/>
+  <testcase name="checkCoronavirusURL" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="5.906"/>
+  <testcase name="getTitlesTopSevenCoronavirusNewsTab" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="7.392"/>
+  <testcase name="explainingRFCountChildrenCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="7.591"/>
+  <testcase name="TwentyFourSMICountChildrenCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="6.302"/>
+  <testcase name="MoscowTwentyFourCountChildrenCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="6.521"/>
+  <testcase name="getTitlesReadAlsoTabCoronavirusNews" classname="IndexTest.ParticularTests.NewsTests.CoronavirusNewsPageTest" time="7.469"/>
 </testsuite>

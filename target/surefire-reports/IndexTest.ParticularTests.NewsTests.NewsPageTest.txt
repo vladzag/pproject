@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: IndexTest.ParticularTests.NewsTests.NewsPageTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 189.259 s - in IndexTest.ParticularTests.NewsTests.NewsPageTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 152.396 s - in IndexTest.ParticularTests.NewsTests.NewsPageTest

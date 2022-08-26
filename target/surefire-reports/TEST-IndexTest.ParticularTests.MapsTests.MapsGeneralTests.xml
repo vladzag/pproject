@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="37.192" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="45.728" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.1.2 org.apache.maven.plugins:maven-surefire-plugin:2.20:test"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.1.2 clean validate compile test"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3"/>
@@ -58,11 +58,11 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="mapsCheckURL" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="4.193"/>
-  <testcase name="checkDateAndTimeList" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="4.365"/>
-  <testcase name="checkForTimeZoneButtons" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="4.8"/>
-  <testcase name="checkForMapsLegend" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="4.381"/>
-  <testcase name="checkRegionNames" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="4.291"/>
-  <testcase name="checkTopLinks" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="4.057"/>
-  <testcase name="takeMapScreenshots" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="11.105"/>
+  <testcase name="mapsCheckURL" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="4.747"/>
+  <testcase name="checkDateAndTimeList" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="4.994"/>
+  <testcase name="checkForTimeZoneButtons" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="6.151"/>
+  <testcase name="checkForMapsLegend" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="5.876"/>
+  <testcase name="checkRegionNames" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="5.44"/>
+  <testcase name="checkTopLinks" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="5.044"/>
+  <testcase name="takeMapScreenshots" classname="IndexTest.ParticularTests.MapsTests.MapsGeneralTests" time="13.471"/>
 </testsuite>
