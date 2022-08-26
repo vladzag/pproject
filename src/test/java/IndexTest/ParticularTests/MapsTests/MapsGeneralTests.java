@@ -5,22 +5,12 @@ import common.ConfiguresAndConstants;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.MapsPageGismeteo;
 import webpages.gismeteo.pages.NewsPageGismeteo;
 import org.openqa.selenium.support.Color;
-
-
-/*import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
-*/
-
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -28,7 +18,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class MapsGeneralTests extends DefaultPageTest {
     @Test
@@ -59,7 +48,7 @@ public class MapsGeneralTests extends DefaultPageTest {
     }
 
     @Test
-    public void checkTopLinks() {
+    public void maosCheckTopLinks() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
         ArrayList<String> topLinksSet = new ArrayList<String>();
         topLinksSet.add("Осадки");

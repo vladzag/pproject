@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="76.347" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="88.867" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.1.2 org.apache.maven.plugins:maven-surefire-plugin:2.20:test"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.1.2 clean validate compile test"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3"/>
@@ -58,15 +58,15 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="TwentyFourSMICountChildrenWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="5.079"/>
-  <testcase name="checkMoreNewsButtonWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="7.451"/>
-  <testcase name="explainingRFCountChildrenWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="4.939"/>
-  <testcase name="wildfireCheckTopLinks" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="5.593"/>
-  <testcase name="getTitlesTopSevenWildfireNewsTab" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="5.3"/>
-  <testcase name="MoscowTwentyFourCountChildrenWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="4.958"/>
-  <testcase name="getTitlesReadAlsoTabWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="5.964"/>
-  <testcase name="checkWildfireURL" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="5.414"/>
-  <testcase name="wildfireNewsCountElementsFirstColumn" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="5.717"/>
-  <testcase name="clickMoreNewsButtonWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="20.886"/>
-  <testcase name="readAlsoCounterChildrenWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="5.044"/>
+  <testcase name="TwentyFourSMICountChildrenWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="7.292"/>
+  <testcase name="checkMoreNewsButtonWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="7.122"/>
+  <testcase name="explainingRFCountChildrenWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="6.432"/>
+  <testcase name="wildfireCheckTopLinks" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="5.183"/>
+  <testcase name="getTitlesTopSevenWildfireNewsTab" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="6.659"/>
+  <testcase name="MoscowTwentyFourCountChildrenWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="6.009"/>
+  <testcase name="getTitlesReadAlsoTabWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="7.017"/>
+  <testcase name="checkWildfireURL" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="6.073"/>
+  <testcase name="wildfireNewsCountElementsFirstColumn" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="6.742"/>
+  <testcase name="clickMoreNewsButtonWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="23.407"/>
+  <testcase name="readAlsoCounterChildrenWildfireNews" classname="IndexTest.ParticularTests.NewsTests.WildfireNewsPageTest" time="6.928"/>
 </testsuite>
