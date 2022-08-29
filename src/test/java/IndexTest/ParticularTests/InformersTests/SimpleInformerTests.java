@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.InfoPageGismeteo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SimpleInformerTests extends DefaultPageTest {
@@ -32,13 +33,13 @@ public class SimpleInformerTests extends DefaultPageTest {
     public void informersCheckURL() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple/");
         Assertions.assertEquals("https://www.gismeteo.ru/informers/simple/", driver.getCurrentUrl(), "https://www.gismeteo.ru/informers/simple/" + driver.getCurrentUrl() + " не соответствуют");
+        driver.quit();
     }
 
     @Test
-    public void informerCheckTopLinks() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/");
+    public void simpleInformerCheckTopLinks() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple");
         ArrayList<String> topLinksSet = new ArrayList<String>();
-        topLinksSet.add("Простой информер");
         topLinksSet.add("Конструктор");
         topLinksSet.add("Условия использования");
         WebElement topLinks = driver.findElement(InfoPageGismeteo.topLinksSelector);
@@ -47,13 +48,47 @@ public class SimpleInformerTests extends DefaultPageTest {
         for (WebElement elementName : topLinksNames) {
             someStringList.add(elementName.getText());
         }
+        System.out.println(someStringList + "\n" + topLinksSet);
         Assertions.assertEquals(someStringList.containsAll(topLinksSet), topLinksSet.containsAll(someStringList));
+        driver.quit();
     }
 
     @Test
-    public void checkForHeadersTextOfSection() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/");
+    public void checkForSimpleInformersHeader() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple");
         WebElement someElement = driver.findElement(InfoPageGismeteo.simpleInformersHeaderSelector);
-        Assertions.assertTrue(someElement.getText().contains("Создайте свой уникальный погодный информер"));
+        Assertions.assertTrue(someElement.getText().contains("Простые информеры"));
+        driver.quit();
     }
+
+    @Test
+    public void checkForSimpleInformersCheckItems() {
+        int expectedAmountOfItems = 24;
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple");
+        WebElement someElement = driver.findElement(InfoPageGismeteo.simpleInformersHeaderSelector);
+        List<WebElement> someList = someElement.findElements(By.className("informers__type"));
+        int amountOfItems = 0;
+        ArrayList<String> listOfStrings = new ArrayList<>();
+        for (WebElement someListElement : someList) {
+            amountOfItems = amountOfItems + someListElement.findElements(By.className("informer")).size();
+            listOfStrings.add(someListElement.getText());
+        }
+        Assertions.assertTrue(amountOfItems == expectedAmountOfItems);
+        driver.quit();
+    }
+
+    @Test
+    public void checkForSimpleInformersCheckFilling() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple");
+        WebElement someElement = driver.findElement(InfoPageGismeteo.simpleInformersHeaderSelector);
+        List<WebElement> someList = someElement.findElements(By.className("informers__type"));
+        ArrayList<String> listOfStringsFromElements = new ArrayList<String>();
+        for (WebElement someListElement : someList) {
+            listOfStringsFromElements.add(someListElement.getAttribute("clientHeight"));
+            listOfStringsFromElements.add(someListElement.getAttribute("clientWidth"));
+        }
+        Assertions.assertTrue(listOfStringsFromElements != null);
+        driver.quit();
+    }
+
 }

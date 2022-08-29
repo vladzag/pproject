@@ -108,4 +108,11 @@ public class InformersGeneralTests extends DefaultPageTest {
         Assertions.assertEquals(expectedamountofitems, counttotalelements, " counttotalelements does not match expected one");
         driver.quit();
     }
+
+    @Test
+    public void checkForHeadersTextOfSection() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple");
+        WebElement someElement = driver.findElement(InfoPageGismeteo.simpleInformersHeaderSelector);
+        Assertions.assertTrue(someElement.getText().contains("Создайте свой уникальный погодный информер"));
+    }
 }
