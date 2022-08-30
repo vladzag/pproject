@@ -16,6 +16,6 @@ public class InfoPageGismeteo extends DefaultPage {
     public static final By secondListSetForAllSitesSelector = new By.ByCssSelector("body > section > div:nth-child(4) > div > div > div > table > tbody > tr:nth-child(2)");
     public static final By setForAnySiteLastSelector = new By.ByCssSelector(".iconLine.last");
     public static final By simpleInformersHeaderSelector = new By.ByCssSelector("body > section > div > div > div > div");
-    public static final By informersClassSelector = new By.ByCssSelector("body > section > div > div > div > div");
+    public static final By informersLanguageSelector = new By.ByCssSelector(".params.field.switch");
 
 }
