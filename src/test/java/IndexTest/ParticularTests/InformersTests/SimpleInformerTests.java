@@ -7,9 +7,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.InfoPageGismeteo;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SimpleInformerTests extends DefaultPageTest {
@@ -48,7 +46,6 @@ public class SimpleInformerTests extends DefaultPageTest {
         for (WebElement elementName : topLinksNames) {
             someStringList.add(elementName.getText());
         }
-        System.out.println(someStringList + "\n" + topLinksSet);
         Assertions.assertEquals(someStringList.containsAll(topLinksSet), topLinksSet.containsAll(someStringList));
         driver.quit();
     }
@@ -91,4 +88,14 @@ public class SimpleInformerTests extends DefaultPageTest {
         driver.quit();
     }
 
+    @Test
+    public void checkLinkOfInformer() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple");
+        WebElement someElement = driver.findElement(InfoPageGismeteo.simpleInformersHeaderSelector);
+        List<WebElement> someList = someElement.findElements(By.className("informer"));
+        for (WebElement someListElement : someList) {
+            Assertions.assertTrue(someListElement.getAttribute("href").contains("https://www.gismeteo.ru/informers/simple/tuner"));
+        }
+        driver.quit();
+    }
 }
