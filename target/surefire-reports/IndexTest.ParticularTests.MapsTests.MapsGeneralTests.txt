@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: IndexTest.ParticularTests.MapsTests.MapsGeneralTests
--------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 45.728 s - in IndexTest.ParticularTests.MapsTests.MapsGeneralTests

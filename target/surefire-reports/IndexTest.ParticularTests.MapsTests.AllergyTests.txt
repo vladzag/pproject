@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: IndexTest.ParticularTests.MapsTests.AllergyTests
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 40.272 s <<< FAILURE! - in IndexTest.ParticularTests.MapsTests.AllergyTests
-checkSelectSource(IndexTest.ParticularTests.MapsTests.AllergyTests)  Time elapsed: 7.539 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: URL does not match ==> expected: <https://www.gismeteo.ru/maps/allergy?q=CQSwSKNJGDKRX1%2Bs8y6xYw%3D%3D> but was: <https://www.gismeteo.ru/maps/allergy?q=yWyvY%2FZbgGd8GIcMgUaZWLJSjOI%3D>
-	at IndexTest.ParticularTests.MapsTests.AllergyTests.checkSelectSource(AllergyTests.java:75)
-

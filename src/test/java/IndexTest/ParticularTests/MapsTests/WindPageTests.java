@@ -3,20 +3,17 @@ package IndexTest.ParticularTests.MapsTests;
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 import webpages.gismeteo.pages.MapsPageGismeteo;
-import webpages.gismeteo.pages.NewsPageGismeteo;
-
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
