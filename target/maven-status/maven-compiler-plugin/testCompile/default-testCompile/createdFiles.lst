@@ -1,6 +1,7 @@
 IndexTest/ParticularTests/MapsTests/MapsGeneralTests.class
 IndexTest/ParticularTests/NewsTests/NatureNewsPageTest.class
 IndexTest/ParticularTests/UXTests.class
+IndexTest/ParticularTests/InformersTests/ConstructorsInformerTests.class
 IndexTest/ParticularTests/NewsTests/ScienceNewsPageTest.class
 IndexTest/ParticularTests/MapsTests/AllergyTests.class
 IndexTest/ParticularTests/CityPageContentsTest.class
@@ -12,6 +13,8 @@ IndexTest/ParticularTests/NewsTests/AnimalsNewsPageTest.class
 IndexTest/DefaultPageTest.class
 IndexTest/ParticularTests/GeneralTest.class
 IndexTest/ParticularTests/NewsTests/NewsPageTest.class
+IndexTest/ParticularTests/InformersTests/SimpleInformerTests.class
 IndexTest/ParticularTests/NewsTests/WeatherNewsPageTest.class
 IndexTest/ParticularTests/MapsTests/TemperaturePageTest.class
 IndexTest/ParticularTests/MapsTests/WindPageTests.class
+IndexTest/ParticularTests/InformersTests/InformersGeneralTests.class

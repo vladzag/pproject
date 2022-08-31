@@ -2,7 +2,6 @@ package IndexTest.ParticularTests.InformersTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
-import org.junit.Test;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

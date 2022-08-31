@@ -2,8 +2,8 @@ package IndexTest.ParticularTests.InformersTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.InfoPageGismeteo;

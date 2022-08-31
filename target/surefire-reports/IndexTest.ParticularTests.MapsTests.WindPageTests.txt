@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: IndexTest.ParticularTests.MapsTests.WindPageTests
--------------------------------------------------------------------------------
-Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 101.383 s - in IndexTest.ParticularTests.MapsTests.WindPageTests

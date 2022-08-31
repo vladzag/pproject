@@ -2,15 +2,12 @@ package IndexTest.ParticularTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import webpages.gismeteo.IndexPageGismeteo;
 import webpages.gismeteo.pages.CityPage;
-
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static webpages.gismeteo.pages.CityPage.*;
 
 
@@ -53,13 +50,13 @@ public class CityPageContentsTest extends DefaultPageTest {
         String expectedHumidity = "Влажность, %";
         String expectedSunAndMoon = "Солнце и Луна";
         String expectedGeoActivity = "Геомагнитная активность, Кп-индекс";
-        assertThat(windSpeed, containsString(expectedWindSpeed));
-        assertThat(pollenQuantity, containsString(expectedPollen));
-        assertThat(weatherOnRoads, containsString(expectedWeatherOnRoads));
-        assertThat(barometricPressure, containsString(expectedPressure));
-        assertThat(humidityPercentage, containsString(expectedHumidity));
-        assertThat(sunAndMoon, containsString(expectedSunAndMoon));
-        assertThat(geomagneticActivity, containsString(expectedGeoActivity));
+        Assertions.assertTrue(windSpeed.contains(expectedWindSpeed));
+        Assertions.assertTrue(pollenQuantity.contains(expectedPollen));
+        Assertions.assertTrue(weatherOnRoads.contains(expectedWeatherOnRoads));
+        Assertions.assertTrue(barometricPressure.contains(expectedPressure));
+        Assertions.assertTrue(humidityPercentage.contains(expectedHumidity));
+        Assertions.assertTrue(sunAndMoon.contains(expectedSunAndMoon));
+        Assertions.assertTrue(geomagneticActivity.contains(expectedGeoActivity));
         driver.quit();
     }
 
