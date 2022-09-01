@@ -3,7 +3,9 @@ package IndexTest.ParticularTests.MapsTests;
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
 import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -17,6 +19,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class CloudsPageTests extends DefaultPageTest {
+/*
+    @BeforeEach
+    public void BeforeEachMethod() {defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/eur/clou/");}
+
+    @AfterEach
+    public void AfterEachMethod() {
+        driver.quit();
+    }*/
     @Test
     public void mapsEurCloudsCheckURL() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/eur/clou/");

@@ -2,8 +2,7 @@ package IndexTest.ParticularTests.InformersTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.InfoPageGismeteo;
@@ -12,32 +11,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConstructorsInformerTests extends DefaultPageTest {
-/*
-    @BeforeAll
-    public void BeforeEachMethod() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple/");
+
+    @BeforeEach
+    public void beforeEachMethod() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL);
     }
 
     @AfterEach
-    public void AfterEachMethod() {
-        driver.close();
-    }
-
-    @AfterAll
-    public void AfterAllMethod() {
-        driver.quit();
-    }*/
+    public void AfterEachMethod() {driver.quit();}
 
     @Test
     public void constructorsCheckURL() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/constructor/");
         Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.gismeteo.ru/informers/constructor/#"));
-        driver.quit();
     }
 
     @Test
     public void simpleInformerCheckTopLinks() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/constructor/");
         ArrayList<String> topLinksSet = new ArrayList<String>();
         topLinksSet.add("Простой информер");
         topLinksSet.add("Условия использования");
@@ -48,12 +37,10 @@ public class ConstructorsInformerTests extends DefaultPageTest {
             someStringList.add(elementName.getText());
         }
         Assertions.assertEquals(someStringList.containsAll(topLinksSet), topLinksSet.containsAll(someStringList));
-        driver.quit();
     }
 
     @Test
     public void checkForLanguagesAvailable() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/constructor/");
         WebElement generalListOfLanguages = driver.findElement(InfoPageGismeteo.informersLanguageSelector);
         String locatorID = "languageLabel";
         for (int i = 1; i == 8; i++) {
@@ -63,7 +50,6 @@ public class ConstructorsInformerTests extends DefaultPageTest {
             generalListOfLanguages.findElement(By.id(locatorID)).click();
             System.out.println(generalListOfLanguages.findElement(By.id(locatorID)).getText());
         }
-        driver.quit();
     }
 
 }

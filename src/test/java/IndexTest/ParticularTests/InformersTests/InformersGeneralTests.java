@@ -2,9 +2,8 @@ package IndexTest.ParticularTests.InformersTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.*;
 
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
@@ -23,16 +22,19 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class InformersGeneralTests extends DefaultPageTest {
+
+    @BeforeEach
+    public void BeforeEachMethod() {defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/");}
+
+    @AfterEach
+    public void AfterEachMethod(){driver.quit();}
     @Test
     public void informersCheckURL() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/");
         Assertions.assertEquals("https://www.gismeteo.ru/informers/", driver.getCurrentUrl(), "https://www.gismeteo.ru/informers/" + driver.getCurrentUrl() + " не соответствуют");
-        driver.quit();
     }
 
     @Test
     public void informerCheckTopLinks() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/");
         ArrayList<String> topLinksSet = new ArrayList<String>();
         topLinksSet.add("Простой информер");
         topLinksSet.add("Конструктор");
@@ -44,12 +46,10 @@ public class InformersGeneralTests extends DefaultPageTest {
             someStringList.add(elementName.getText());
         }
         Assertions.assertEquals(someStringList.containsAll(topLinksSet), topLinksSet.containsAll(someStringList));
-        driver.quit();
     }
 
     @Test
     public void checkForTableElements() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/");
         WebElement scrollerTableElement = driver.findElement(InfoPageGismeteo.scrollerTableSelector);
         List<WebElement> scrollerTableElementsList = scrollerTableElement.findElements(By.className("b-j-scroller__cell"));
         int countElementNumber = 1;
@@ -58,22 +58,18 @@ public class InformersGeneralTests extends DefaultPageTest {
             Assertions.assertTrue(tableElement.getAttribute("innerHTML").contains("gismeteo.ru/assets/"));
             countElementNumber++;
         }
-        driver.quit();
     }
 
     @Test
     public void checkOffer() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/");
         clickElement(InfoPageGismeteo.offerConditionsSelector);
         Assertions.assertEquals("https://www.gismeteo.ru/informers/offer/", driver.getCurrentUrl(), "https://www.gismeteo.ru/informers/offer/" + driver.getCurrentUrl() + " не соответствуют");
         WebElement firstParagraph = driver.findElement(By.cssSelector("#content > div > p:nth-child(2)"));
         Assertions.assertTrue(firstParagraph.getAttribute("innerHTML").contains("ООО «НПЦ «Мэп Мейкер» владеет и управляет сайтом www.gismeteo.ru (далее — Сайт)"));
-        driver.quit();
     }
 
     @Test
     public void checkForElementsSetAnySite() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/");
         int expectedamountofitems = 8;
         int counttotalelements = 0;
         int counttotalelementsfirsttime = 1;
@@ -104,12 +100,10 @@ public class InformersGeneralTests extends DefaultPageTest {
             counttotalelements++;
         }
         Assertions.assertEquals(expectedamountofitems, counttotalelements, " counttotalelements does not match expected one");
-        driver.quit();
     }
 
     @Test
     public void checkForHeadersTextOfSection() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple");
         WebElement someElement = driver.findElement(InfoPageGismeteo.simpleInformersHeaderSelector);
         Assertions.assertTrue(someElement.getText().contains("Создайте свой уникальный погодный информер"));
     }
