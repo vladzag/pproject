@@ -2,7 +2,9 @@ package IndexTest.ParticularTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -19,11 +21,10 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Stream;
-
 import static webpages.gismeteo.IndexPageGismeteo.*;
 
 public class GeneralTest extends DefaultPageTest {
-/*
+
     @BeforeEach
     public void beforeEachMethod() {
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL);
@@ -32,7 +33,7 @@ public class GeneralTest extends DefaultPageTest {
     @AfterEach
     public void afterEachMethod() {
         driver.quit();
-    }*/
+    }
 
     @ParameterizedTest
     @ValueSource(strings = {"https://www.gismeteo.ru/", "https://www.gismeteo.ru/weather-syzran-4448/", "https://www.gismeteo.ru/news/", "https://www.gismeteo.ru/maps/", "https://www.gismeteo.ru/informers/", "https://www.gismeteo.ru/soft/"})
@@ -76,14 +77,13 @@ public class GeneralTest extends DefaultPageTest {
 
     @Test
     public void replaceYandexCookie() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL);
         Cookie cookieTest = new Cookie("yuidss", "8"); //original value = 1914338451625754248
         driver.manage().addCookie(cookieTest);
-        driver.quit();
     }
 
     @Test
     public void deleteAllCookiesLoadingTime() {
+        driver.get("https://google.com");
         long startWithCookies = System.currentTimeMillis();
         defaultPage.openWebPages(ConfiguresAndConstants.defaultURL);
         long finishWithCookies = System.currentTimeMillis();
@@ -94,7 +94,6 @@ public class GeneralTest extends DefaultPageTest {
         long finishWithoutCookies = System.currentTimeMillis();
         long totalTimeWithoutCookies = finishWithoutCookies - startWithoutCookies;
         System.out.println(totalTimeWithCookies - totalTimeWithoutCookies + " миллисекунд разница между загрузкой с куками и без");
-        driver.quit();
     }
 
     private static Stream<Arguments> requestList() {
@@ -113,17 +112,14 @@ public class GeneralTest extends DefaultPageTest {
     @ParameterizedTest
     @MethodSource("requestList")
     public void searchFieldTest(String searchRequest, String searchResult) throws InterruptedException {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL);
         indexPage.searchFieldWithText(searchRequest);
         Thread.sleep(3000);
         clickElement(IndexPageGismeteo.firstItemInSearch);
         Assertions.assertEquals(searchResult, driver.getCurrentUrl(), driver.getCurrentUrl() + " and " + searchResult + " do not match");
-        driver.quit();
     }
 
     @Test
     public void ClickableHeaderLinksTest() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL);
         clickElement(headerLinkMaps);
         String mapsTitleExpected = "GISMETEO: осадки в Европе, прогноз осадков на карте Европы";
         Assertions.assertEquals(mapsTitleExpected, driver.getTitle(), "was expected " + mapsTitleExpected + ", but got " + driver.getTitle());
@@ -139,6 +135,5 @@ public class GeneralTest extends DefaultPageTest {
         clickElement(headerLinkWeather);
         String weatherTitleExpected = "GISMETEO: Погода в России, прогноз погоды на сегодня, завтра, 3 дня, выходные, неделю, 10 дней, месяц.";
         Assertions.assertEquals(weatherTitleExpected, driver.getTitle(), "was expected " + weatherTitleExpected + ", but got " + driver.getTitle());
-        driver.quit();
     }
 }

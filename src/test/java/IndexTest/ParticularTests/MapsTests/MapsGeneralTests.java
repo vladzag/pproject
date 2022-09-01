@@ -3,7 +3,9 @@ package IndexTest.ParticularTests.MapsTests;
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
 import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -20,16 +22,22 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MapsGeneralTests extends DefaultPageTest {
-    @Test
-    public void mapsCheckURL() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
-        Assertions.assertEquals("https://www.gismeteo.ru/maps/", driver.getCurrentUrl(), "https://www.gismeteo.ru/maps/" + driver.getCurrentUrl() + " не соответствуют");
+
+    @BeforeEach
+    public void BeforeEachMethod() {defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");}
+
+    @AfterEach
+    public void AfterEachMethod() {
         driver.quit();
     }
 
     @Test
+    public void mapsCheckURL() {
+        Assertions.assertEquals("https://www.gismeteo.ru/maps/", driver.getCurrentUrl(), "https://www.gismeteo.ru/maps/" + driver.getCurrentUrl() + " не соответствуют");
+    }
+
+    @Test
     public void checkForTimeZoneButtons() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
         clickElement(MapsPageGismeteo.timeZoneSelector);
         List<WebElement> timeZoneOption = driver.findElements(MapsPageGismeteo.dropDownMenuItemsSelector);
         for (int i = 0; i <= 2; i++) {
@@ -44,12 +52,10 @@ public class MapsGeneralTests extends DefaultPageTest {
             Assertions.assertEquals(timeZoneString, timeZoneObject.getAttribute("innerHTML"), "\n Something went wrong with timezones doest not match " + timeZoneObject.getAttribute("innerHTML"));
             timeZoneValue++;
         }
-        driver.quit();
     }
 
     @Test
     public void maosCheckTopLinks() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
         ArrayList<String> topLinksSet = new ArrayList<String>();
         topLinksSet.add("Осадки");
         topLinksSet.add("Температура");
@@ -63,17 +69,14 @@ public class MapsGeneralTests extends DefaultPageTest {
             someStringList.add(elementName.getText());
         }
         Assertions.assertEquals(someStringList.containsAll(topLinksSet), topLinksSet.containsAll(someStringList));
-        driver.quit();
     }
 
     @Test
     public void checkDateAndTimeList() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
         int expectedSize = 20;
         WebElement dateTimeList = driver.findElement(MapsPageGismeteo.dateAndTimeListSelector);
         List<WebElement> exactDateAndTimeList = dateTimeList.findElements(By.className("date-time-list-item"));
         Assertions.assertEquals(expectedSize, exactDateAndTimeList.size());
-        driver.quit();
     }
 
     @Test
@@ -82,7 +85,6 @@ public class MapsGeneralTests extends DefaultPageTest {
         int expectedquantityofscreenshots = 21;
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("uuuu:MM:dd_HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
         WebElement currentMap = driver.findElement(MapsPageGismeteo.currentMapSelector);
         WebElement currentTimeZone = driver.findElement(MapsPageGismeteo.dateAndTimeListSelector);
         List<WebElement> exactDateAndTimeList = currentTimeZone.findElements(By.className("date-time-list-item"));
@@ -93,12 +95,10 @@ public class MapsGeneralTests extends DefaultPageTest {
             screenshotcounter++;
         }
         Assertions.assertEquals(expectedquantityofscreenshots, screenshotcounter, "Screenshot quantity does not match");
-        driver.quit();
     }
 
     @Test
     public void checkRegionNames() {
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
         List<String> expectedList = Arrays.asList("Сибирь", "Европа", "Дальний восток");
         clickElement(MapsPageGismeteo.regionDropDownSelector);
         List<WebElement> regionsAndHoursList = driver.findElements(MapsPageGismeteo.dropDownMenuItemsSelector);
@@ -108,14 +108,12 @@ public class MapsGeneralTests extends DefaultPageTest {
             regionsAndHoursList.remove(0);
         }
         Assertions.assertEquals(expectedList.containsAll(regionsList), regionsList.containsAll(expectedList), "Lists do not match");
-        driver.quit();
     }
 
     @Test
     public void checkForMapsLegend() {
         List<String> colourCodes = Arrays.asList("#a0ffa0", "#8cff8c", "#64ff64", "#3cff3c", "#00ff00", "#00e600", "#00dc00", "#00c800", "#00b400", "#00a000", "#008c00", "#007800", "#005000");
         List<String> mmCodes = Arrays.asList("0,5 мм", "1", "1,5", "2", "2,5", "3", "3,5", "4", "5", "10", "15", "20", "25 мм");
-        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
         List<WebElement> listOfMapLegendParameters = driver.findElements(new By.ByCssSelector(".item.item-prc"));
         int elementNumber = 0;
         for (WebElement element : listOfMapLegendParameters) {
@@ -125,6 +123,5 @@ public class MapsGeneralTests extends DefaultPageTest {
             Assertions.assertEquals(element.getText(), mmCodes.get(elementNumber), "mm do not match");
             elementNumber++;
         }
-        driver.quit();
     }
 }
