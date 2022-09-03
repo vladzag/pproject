@@ -5,21 +5,9 @@ import common.ConfiguresAndConstants;
 import org.junit.jupiter.api.*;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
-import webpages.gismeteo.IndexPageGismeteo;
 import webpages.gismeteo.pages.InfoPageGismeteo;
-import webpages.gismeteo.pages.MapsPageGismeteo;
-import webpages.gismeteo.pages.NewsPageGismeteo;
-
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.stream.Stream;
 
 public class InformersGeneralTests extends DefaultPageTest {
 

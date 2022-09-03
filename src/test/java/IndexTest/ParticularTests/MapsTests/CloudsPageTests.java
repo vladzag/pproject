@@ -3,41 +3,20 @@ package IndexTest.ParticularTests.MapsTests;
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
 import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.MapsPageGismeteo;
-
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class CloudsPageTests extends DefaultPageTest {
-    private static Stream<Arguments> requestList() {
-        return Stream.of(
-                Arguments.of("Moscow", "https://www.gismeteo.ru/weather-moscow-4368/"),
-                Arguments.of("Csphfym", "https://www.gismeteo.ru/weather-syzran-4448/"),
-                Arguments.of("Санкт-Петербург (Пулково)", "https://www.gismeteo.ru/weather-sankt-peterburg-pulkovo-12967/"),
-                Arguments.of("Урю", "https://www.gismeteo.ru/weather-uryupinsk-5045/"),
-                Arguments.of("Москва", "https://www.gismeteo.ru/weather-moscow-4368/"),
-                Arguments.of("", "https://www.gismeteo.ru/weather-moscow-4368/"),
-                Arguments.of(" ", "https://www.gismeteo.ru/weather-moscow-4368/")
-
-        );
-    }
-
-
     /*
     @BeforeEach
     public void BeforeEachMethod() {defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/eur/clou/");}

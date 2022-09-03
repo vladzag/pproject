@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import webpages.gismeteo.IndexPageGismeteo;
 import webpages.gismeteo.pages.CityPage;
-
 import static webpages.gismeteo.pages.CityPage.*;
 
 

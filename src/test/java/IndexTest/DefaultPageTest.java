@@ -1,10 +1,8 @@
 package IndexTest;
 
 import common.CommonActivities;
-import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import webpages.defaultData.DefaultPage;
 import webpages.gismeteo.IndexPageGismeteo;
