@@ -18,4 +18,6 @@ public class InfoPageGismeteo extends DefaultPage {
     public static final By simpleInformersHeaderSelector = new By.ByCssSelector("body > section > div > div > div > div");
     public static final By informersLanguageSelector = new By.ByCssSelector(".params.field.switch");
 
+    public static final By cityNameSelector = new By.ByXPath("/html/body/section/div/div/div/div/div[2]/div/form/table/tbody/tr/td[3]/div/div[2]/div/div/div[1]/div[2]/div[2]/div/div/table/tbody/tr/td[1]/div/span");
+
 }
