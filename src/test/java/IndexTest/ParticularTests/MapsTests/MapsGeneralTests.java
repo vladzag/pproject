@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.MapsPageGismeteo;
 import webpages.gismeteo.pages.NewsPageGismeteo;
 import org.openqa.selenium.support.Color;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -24,7 +25,9 @@ import java.util.List;
 public class MapsGeneralTests extends DefaultPageTest {
 
     @BeforeEach
-    public void BeforeEachMethod() {defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");}
+    public void BeforeEachMethod() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/");
+    }
 
     @AfterEach
     public void AfterEachMethod() {

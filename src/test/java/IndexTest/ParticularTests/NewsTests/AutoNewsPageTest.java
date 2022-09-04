@@ -79,7 +79,7 @@ public class AutoNewsPageTest extends DefaultPageTest {
 
     @Test
     public void TwentyFourSMICountChildrenAutoNews() {
-      String amountOfChildren = "11";
+        String amountOfChildren = "11";
         WebElement twentySMIFourTab = driver.findElement(NewsPageGismeteo.twentyFourSMITabSelector);
         Assertions.assertEquals(amountOfChildren, twentySMIFourTab.getAttribute("childElementCount"), "Количество детей (" + twentySMIFourTab.getAttribute("childElementCount") + ") не равно ожидаемому (" + amountOfChildren + ")");
     }
