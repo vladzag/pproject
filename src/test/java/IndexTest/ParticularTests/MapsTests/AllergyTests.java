@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import webpages.gismeteo.IndexPageGismeteo;
 import webpages.gismeteo.pages.MapsPageGismeteo;
+
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -25,12 +26,15 @@ import java.util.stream.Stream;
 public class AllergyTests extends DefaultPageTest {
 
     @BeforeEach
-    public void BeforeEachMethod() {defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/allergy/");}
+    public void BeforeEachMethod() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "maps/allergy/");
+    }
 
     @AfterEach
     public void AfterEachMethod() {
         driver.quit();
     }
+
     @Test
     public void allergyCheckURL() {
         Assertions.assertEquals("https://www.gismeteo.ru/maps/allergy/", driver.getCurrentUrl(), "https://www.gismeteo.ru/maps/allergy/" + driver.getCurrentUrl() + " не соответствуют");

@@ -11,6 +11,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 import webpages.gismeteo.pages.MapsPageGismeteo;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;

@@ -92,7 +92,7 @@ public class AnimalsNewsPageTest extends DefaultPageTest {
     }
 
     @Test
-     void getTitlesReadAlsoTabAnimalsNews() {
+    void getTitlesReadAlsoTabAnimalsNews() {
         WebElement someElement = driver.findElement(NewsPageGismeteo.firstColumnTabSelector);
         List<WebElement> someElements = someElement.findElements(By.className("article-item"));
         for (WebElement articleItem : someElements) {

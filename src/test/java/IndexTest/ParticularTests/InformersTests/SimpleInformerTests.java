@@ -6,12 +6,15 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.InfoPageGismeteo;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleInformerTests extends DefaultPageTest {
     @BeforeEach
-    public void BeforeEachMethod() {defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple/");}
+    public void BeforeEachMethod() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/simple/");
+    }
 
     @AfterEach
     public void AfterEachMethod() {

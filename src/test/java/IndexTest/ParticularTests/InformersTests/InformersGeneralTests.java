@@ -7,15 +7,21 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import webpages.gismeteo.pages.InfoPageGismeteo;
+
 import java.util.*;
 
 public class InformersGeneralTests extends DefaultPageTest {
 
     @BeforeEach
-    public void BeforeEachMethod() {defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/");}
+    public void BeforeEachMethod() {
+        defaultPage.openWebPages(ConfiguresAndConstants.defaultURL + "informers/");
+    }
 
     @AfterEach
-    public void AfterEachMethod(){driver.quit();}
+    public void AfterEachMethod() {
+        driver.quit();
+    }
+
     @Test
     public void informersCheckURL() {
         Assertions.assertEquals("https://www.gismeteo.ru/informers/", driver.getCurrentUrl(), "https://www.gismeteo.ru/informers/" + driver.getCurrentUrl() + " не соответствуют");
