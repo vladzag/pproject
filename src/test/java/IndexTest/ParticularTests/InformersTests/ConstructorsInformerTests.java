@@ -242,37 +242,74 @@ public class ConstructorsInformerTests extends DefaultPageTest {
         Assertions.assertFalse(driver.findElement(InfoPageGismeteo.humidityForecastSampleThirdSelector).isDisplayed());
         Assertions.assertFalse(driver.findElement(InfoPageGismeteo.humidityForecastSampleFourthSelector).isDisplayed());
     }
+
     @Test
-    public void changeTemperatureToFahrenheit(){
+    public void changeTemperatureToFahrenheit() {
         clickElement(InfoPageGismeteo.checkTemperatureFahrenheitSelector);
         Assertions.assertTrue(driver.findElement(InfoPageGismeteo.checkTemperatureSamplesSelector).getText().contains("F"));
     }
+
     @Test
-    public void changeTemperatureToCelsius(){
+    public void changeTemperatureToCelsius() {
         clickElement(InfoPageGismeteo.checkTemperatureFahrenheitSelector);
         clickElement(InfoPageGismeteo.checkTemperatureCelsiusSelector);
         Assertions.assertTrue(driver.findElement(InfoPageGismeteo.checkTemperatureSamplesSelector).getText().contains("C"));
     }
+
     @Test
-    public void changeWindSpeedToKMHour(){
+    public void changeWindSpeedToKMHour() {
         clickElement(InfoPageGismeteo.windSpeedKilometreHourSelector);
         Assertions.assertTrue(driver.findElement(InfoPageGismeteo.windSpeedSampleSelector).getText().contains("км/ч"));
     }
+
     @Test
-    public void changeWindSpeedToMS(){
+    public void changeWindSpeedToMS() {
         clickElement(InfoPageGismeteo.windSpeedKilometreHourSelector);
         clickElement(InfoPageGismeteo.windSpeedMeterSecondSelector);
         Assertions.assertTrue(driver.findElement(InfoPageGismeteo.windSpeedSampleSelector).getText().contains("м/с"));
     }
+
     @Test
-    public void changePressureTogPA(){
+    public void changePressureTogPA() {
         clickElement(InfoPageGismeteo.pressuregPASelector);
         Assertions.assertTrue(driver.findElement(InfoPageGismeteo.pressureSampleSelector).getText().contains("гПа"));
     }
+
     @Test
-    public void changePressureToMMHG(){
+    public void changePressureToMMHG() {
         clickElement(InfoPageGismeteo.pressuregPASelector);
         clickElement(InfoPageGismeteo.pressureMMHGSelector);
         Assertions.assertTrue(driver.findElement(InfoPageGismeteo.pressureSampleSelector).getText().contains("мм рт. ст."));
+    }
+
+    @Test
+    public void clickIconRight() {
+        String checkOuterHTML = "<img src=\"/assets/flat-ui/img/icons/weather/standart/small/d.sun.png\">";
+        clickElement(InfoPageGismeteo.iconRightSelector);
+        Assertions.assertTrue(driver.findElement(By.cssSelector("#tab-h24-0 > span.s_icon.sunny > img")).getAttribute("outerHTML").contains(checkOuterHTML));
+    }
+
+    @Test
+    public void clickIconLeft() {
+        String checkOuterHTML = "<img src=\"/assets/flat-ui/img/icons/weather/clip_art/small/d0.png\">";
+        clickElement(InfoPageGismeteo.iconRightSelector);
+        clickElement(InfoPageGismeteo.iconLeftSelector);
+        Assertions.assertTrue(driver.findElement(By.cssSelector("#tab-h24-0 > span.s_icon.sunny > img")).getAttribute("outerHTML").contains(checkOuterHTML));
+    }
+
+    @Test
+    public void contourAppearAndDisappear() {
+        clickElement(InfoPageGismeteo.contourSelector);
+        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.contourSampleSelector).getCssValue("border").contains("0px"));
+        clickElement(InfoPageGismeteo.contourSelector);
+        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.contourSampleSelector).getCssValue("border").contains("1px"));
+    }
+
+    @Test
+    public void checkBackgroundTransparent() {
+        clickElement(InfoPageGismeteo.transparentBackgroundSelector);
+        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.transparentBackgroundSampleSelector).getCssValue("background").contains("rgba(0, 0, 0, 0)"));
+        clickElement(InfoPageGismeteo.transparentBackgroundSelector);
+        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.transparentBackgroundSampleSelector).getCssValue("background").contains("rgb(210, 232, 255)"));
     }
 }

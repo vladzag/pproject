@@ -60,7 +60,7 @@ public class InfoPageGismeteo extends DefaultPage {
     public static final By humidityForecastSampleSecondSelector = new By.ByCssSelector("#tab-h24-1 > div.centralized > div:nth-child(3) > span");
     public static final By humidityForecastSampleThirdSelector = new By.ByCssSelector("#tab-h24-2 > div.centralized > div:nth-child(3) > span");
     public static final By humidityForecastSampleFourthSelector = new By.ByCssSelector("#tab-h24-3 > div.centralized > div:nth-child(3) > span");
-public static final By checkTemperatureCelsiusSelector = new By.ById("temperatureLabel1");
+    public static final By checkTemperatureCelsiusSelector = new By.ById("temperatureLabel1");
     public static final By checkTemperatureFahrenheitSelector = new By.ById("temperatureLabel2");
     public static final By checkTemperatureSamplesSelector = new By.ById("deg");
     public static final By windSpeedMeterSecondSelector = new By.ById("vWindLabel1");
@@ -69,7 +69,11 @@ public static final By checkTemperatureCelsiusSelector = new By.ById("temperatur
     public static final By pressureMMHGSelector = new By.ById("pressLabel1");
     public static final By pressuregPASelector = new By.ById("pressLabel2");
     public static final By pressureSampleSelector = new By.ById("pressEd");
-
-
+    public static final By iconLeftSelector = new By.ByCssSelector("#iconStyleSwitch > span:nth-child(1) > label");
+    public static final By iconRightSelector = new By.ByCssSelector("#iconStyleSwitch > span:nth-child(2) > label");
+    public static final By contourSampleSelector = new By.ById("gsInformer");
+    public static final By contourSelector = new By.ByCssSelector("#borderLabel1");
+    public static final By transparentBackgroundSelector = new By.ById("informerTransparentBGOne");
+    public static final By transparentBackgroundSampleSelector = new By.ByClassName("secondaryWrap");
 
 }
