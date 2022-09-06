@@ -70,7 +70,7 @@ public class InformersGeneralTests extends DefaultPageTest {
         int counttotalementssecondtime = 1;
         List<WebElement> firstListOfElements = driver.findElements(InfoPageGismeteo.firstListSetForAllSitesSelector);
         String array[] = new String[]{"", "Язык", "Модули", "Местоположение", "Показатели"};
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < array.length; i++) {
             for (WebElement element : firstListOfElements) {
                 String someName = element.findElement(By.cssSelector("body > section > div:nth-child(4) > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(" + counttotalelementsfirsttime + ") > div > div > h4")).getText();
                 Assertions.assertTrue(someName.contains(array[i]));
@@ -80,7 +80,7 @@ public class InformersGeneralTests extends DefaultPageTest {
         }
         List<WebElement> secondListOfElements = driver.findElements(InfoPageGismeteo.secondListSetForAllSitesSelector);
         String array2[] = new String[]{"", "Размеры", "Иконки", "Цвет"};
-        for (int i = 1; i < 4; i++) {
+        for (int i = 1; i < array2.length; i++) {
             for (WebElement element : secondListOfElements) {
                 String someName2 = element.findElement(By.cssSelector("body > section > div:nth-child(4) > div > div > div > table > tbody > tr:nth-child(2) > td:nth-child(" + counttotalementssecondtime + ") > div > div > h4")).getText();
                 Assertions.assertTrue(someName2.contains(array2[i]));

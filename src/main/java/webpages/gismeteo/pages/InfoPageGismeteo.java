@@ -75,5 +75,10 @@ public class InfoPageGismeteo extends DefaultPage {
     public static final By contourSelector = new By.ByCssSelector("#borderLabel1");
     public static final By transparentBackgroundSelector = new By.ById("informerTransparentBGOne");
     public static final By transparentBackgroundSampleSelector = new By.ByClassName("secondaryWrap");
+    public static final By fontFaceSelector = new By.ById("fontFace");
+    public static final By borderOnSelector = new By.ByCssSelector("#borderRadio1");
+    public static final By borderInputSelector = new By.ByCssSelector("#borderColor");
 
+    public static final By colourSubmitButton = new By.ByClassName("colorpicker_submit");
+    public static final By borderInputDeFactoSelector = new By.ByClassName("text-color");//By.ByCssSelector("#collorpicker_620 > div.colorpicker_hex.colorpicker_focus > input");
 }
