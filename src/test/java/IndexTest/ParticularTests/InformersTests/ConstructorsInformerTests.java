@@ -2,12 +2,18 @@ package IndexTest.ParticularTests.InformersTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
+import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v85.dom.model.ShapeOutsideInfo;
+import org.openqa.selenium.devtools.v85.page.Page;
 import webpages.gismeteo.pages.InfoPageGismeteo;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,12 +36,12 @@ public class ConstructorsInformerTests extends DefaultPageTest {
 
     @Test
     public void simpleInformerCheckTopLinks() {
-        ArrayList<String> topLinksSet = new ArrayList<String>();
+        ArrayList<String> topLinksSet = new ArrayList<>();
         topLinksSet.add("Простой информер");
         topLinksSet.add("Условия использования");
         WebElement topLinks = driver.findElement(InfoPageGismeteo.topLinksSelector);
         List<WebElement> topLinksNames = topLinks.findElements(new By.ByCssSelector(".subnav_item.nolink"));
-        ArrayList<String> someStringList = new ArrayList<String>();
+        ArrayList<String> someStringList = new ArrayList<>();
         for (WebElement elementName : topLinksNames) {
             someStringList.add(elementName.getText());
         }
@@ -47,7 +53,6 @@ public class ConstructorsInformerTests extends DefaultPageTest {
         WebElement generalListOfLanguages = driver.findElement(InfoPageGismeteo.informersLanguageSelector);
         String locatorID = "languageLabel";
         int clickedTimes = 0;
-        List<String> cityList = new ArrayList();
         for (int i = 1; i < 9; i++) {
             String secondLocator = locatorID + i;
             generalListOfLanguages.findElement(By.id(secondLocator)).click();
@@ -312,4 +317,31 @@ public class ConstructorsInformerTests extends DefaultPageTest {
         clickElement(InfoPageGismeteo.transparentBackgroundSelector);
         Assertions.assertTrue(driver.findElement(InfoPageGismeteo.transparentBackgroundSampleSelector).getCssValue("background").contains("rgb(210, 232, 255)"));
     }
+
+    @Test
+    public void selectDifferentFonts() {
+        List<String> fontsList = Arrays.asList(new String[]{"Arial", "Tahoma", "Verdana", "Georgia", "Comic Sans MS", "Courier New", "Times New Roman", "Trebuchet MS"});
+        Select dropdownfonts = new Select(driver.findElement(InfoPageGismeteo.fontFaceSelector));
+        for (int i = 0; i < fontsList.size(); i++) {
+            dropdownfonts.selectByIndex(i);
+            Assertions.assertTrue(driver.findElement(InfoPageGismeteo.contourSampleSelector).getCssValue("font-family").contains(fontsList.get(i)));
+        }
+    }
+
+/*
+    @Test
+    public void someTestName() {
+        String colourCode = "00FF00";
+        clickElement(InfoPageGismeteo.contourSelector);
+        clickElement(InfoPageGismeteo.borderInputDeFactoSelector);
+        for (int i = 0; i < 6; i++) {
+            driver.findElement(InfoPageGismeteo.borderInputDeFactoSelector).sendKeys(Keys.BACK_SPACE);
+        }
+        driver.findElement(InfoPageGismeteo.borderInputDeFactoSelector).sendKeys(colourCode);
+        driver.findElement(InfoPageGismeteo.colourSubmitButton).click();
+        System.out.println(driver.findElement(InfoPageGismeteo.contourSampleSelector).getCssValue("border"));
+        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.transparentBackgroundSampleSelector).getCssValue("background").contains("rgb(0, 255, 0)"));
+    }
+*/
+
 }
