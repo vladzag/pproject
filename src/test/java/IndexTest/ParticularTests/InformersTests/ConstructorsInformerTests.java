@@ -2,13 +2,14 @@ package IndexTest.ParticularTests.InformersTests;
 
 import IndexTest.DefaultPageTest;
 import common.ConfiguresAndConstants;
-import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.dom.model.ShapeOutsideInfo;
-import org.openqa.selenium.devtools.v85.page.Page;
 import webpages.gismeteo.pages.InfoPageGismeteo;
 import org.openqa.selenium.support.ui.Select;
 
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ConstructorsInformerTests extends DefaultPageTest {
 
@@ -305,9 +307,9 @@ public class ConstructorsInformerTests extends DefaultPageTest {
     @Test
     public void contourAppearAndDisappear() {
         clickElement(InfoPageGismeteo.contourSelector);
-        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.contourSampleSelector).getCssValue("border").contains("0px"));
+        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.calendarSampleSelector).getCssValue("border").contains("0px"));
         clickElement(InfoPageGismeteo.contourSelector);
-        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.contourSampleSelector).getCssValue("border").contains("1px"));
+        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.calendarSampleSelector).getCssValue("border").contains("1px"));
     }
 
     @Test
@@ -324,10 +326,34 @@ public class ConstructorsInformerTests extends DefaultPageTest {
         Select dropdownfonts = new Select(driver.findElement(InfoPageGismeteo.fontFaceSelector));
         for (int i = 0; i < fontsList.size(); i++) {
             dropdownfonts.selectByIndex(i);
-            Assertions.assertTrue(driver.findElement(InfoPageGismeteo.contourSampleSelector).getCssValue("font-family").contains(fontsList.get(i)));
+            Assertions.assertTrue(driver.findElement(InfoPageGismeteo.calendarSampleSelector).getCssValue("font-family").contains(fontsList.get(i)));
         }
     }
 
+    private static Stream<Arguments> listOfValues() {
+        return Stream.of(
+                Arguments.of("0", 236),
+                Arguments.of("208", 210),
+                Arguments.of("212", 210),
+                Arguments.of("213", 211),
+                Arguments.of("500", 498),
+                Arguments.of("2000", 1998),
+                Arguments.of("2002", 1998),
+                Arguments.of("2003", 1998),
+                Arguments.of("50000", 1998)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("listOfValues")
+    public void informerSizeChanger(String value, Integer resultExpected) throws InterruptedException {
+        clickElement(InfoPageGismeteo.informerSizeSelector);
+        driver.findElement(InfoPageGismeteo.informerSizeSelector).sendKeys(Keys.chord(Keys.COMMAND, "a"));
+        driver.findElement(InfoPageGismeteo.informerSizeSelector).sendKeys(Keys.BACK_SPACE, value, Keys.ENTER);
+        Thread.sleep(3000);
+        String defacto = driver.findElement(InfoPageGismeteo.calendarSampleSelector).getAttribute("offsetWidth");
+         Assertions.assertTrue(Integer.parseInt(defacto) == resultExpected);
+    }
 /*
     @Test
     public void someTestName() {
