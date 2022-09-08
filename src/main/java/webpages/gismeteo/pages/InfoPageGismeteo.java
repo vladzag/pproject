@@ -83,4 +83,8 @@ public class InfoPageGismeteo extends DefaultPage {
     public static final By colourSubmitButton = new By.ByClassName("colorpicker_submit");
     public static final By borderInputDeFactoSelector = new By.ByClassName("text-color");//By.ByCssSelector("#collorpicker_620 > div.colorpicker_hex.colorpicker_focus > input");
     public static final By informerSizeSelector = new By.ByCssSelector("#width");
+    public static final By cityResultSamplerSelector = new By.ByCssSelector("#gsCityHead > span");
+    public static final By cityNameForSampleSelector = new By.ById("city");
+    public static final By cityFirstElement = new By.ByCssSelector("#cityUser > div > ul > li:nth-child(1) > a");
+    public static final By listOfCitiesReceived = new By.ByCssSelector(".kindT.ui-menu-item");
 }

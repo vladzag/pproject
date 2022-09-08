@@ -19,6 +19,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class ConstructorsInformerTests extends DefaultPageTest {
 
     @BeforeEach
@@ -352,7 +355,41 @@ public class ConstructorsInformerTests extends DefaultPageTest {
         driver.findElement(InfoPageGismeteo.informerSizeSelector).sendKeys(Keys.BACK_SPACE, value, Keys.ENTER);
         Thread.sleep(3000);
         String defacto = driver.findElement(InfoPageGismeteo.calendarSampleSelector).getAttribute("offsetWidth");
-         Assertions.assertTrue(Integer.parseInt(defacto) == resultExpected);
+        Assertions.assertTrue(Integer.parseInt(defacto) == resultExpected);
+    }
+
+    private static Stream<Arguments> citiesList() {
+        return Stream.of(
+                Arguments.of("Москва", "Москва"),
+                Arguments.of("Csphfym", "Сызрань"),
+                Arguments.of("Санкт-Петербург (Пулково)", "Санкт-Петербург (Пулково)"),
+                Arguments.of("Урю", "Урюпинск"),
+                Arguments.of("Moscow", "Москва")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("citiesList")
+    public void checkLocationPositive(String city, String expectedCityToBe) {
+        clickElement(InfoPageGismeteo.cityNameForSampleSelector);
+        WebElement cityInput = driver.findElement(InfoPageGismeteo.cityNameForSampleSelector);
+        cityInput.sendKeys(city);
+        clickElement(InfoPageGismeteo.cityFirstElement);
+        Assertions.assertEquals(expectedCityToBe, driver.findElement(InfoPageGismeteo.cityResultSamplerSelector).getAttribute("innerText"), "_" + expectedCityToBe + "_ does not match _" + driver.findElement(InfoPageGismeteo.cityResultSamplerSelector).getAttribute("innerText") + "_");
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "123", "someemail@mail.ru"})
+    public void checkLocationNegative(String city) {
+        clickElement(InfoPageGismeteo.cityNameForSampleSelector);
+        WebElement cityInput = driver.findElement(InfoPageGismeteo.cityNameForSampleSelector);
+        cityInput.sendKeys(city);
+        try {
+            driver.findElement(InfoPageGismeteo.cityFirstElement).isDisplayed();
+            fail("Element is displayed");
+        } catch (Exception e) {
+            assertNotNull(e);
+        }
     }
 /*
     @Test
