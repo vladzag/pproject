@@ -87,4 +87,12 @@ public class InfoPageGismeteo extends DefaultPage {
     public static final By cityNameForSampleSelector = new By.ById("city");
     public static final By cityFirstElement = new By.ByCssSelector("#cityUser > div > ul > li:nth-child(1) > a");
     public static final By listOfCitiesReceived = new By.ByCssSelector(".kindT.ui-menu-item");
+    public static final By multipleCitiesPage = new By.ByCssSelector("#tourism-template > a");
+    public static final By inputCitySelector = new By.ByCssSelector("#multiCity");
+    public static final By multipleCityInputSelector = new By.ByCssSelector("#ui-active-menuitem");
+    public static final By premiereMultipleCities = new By.ById("tBody-1");
+    public static final By secondeMultipleCities = new By.ById("tBody-2");
+    public static final By troisiemeMultipleCities = new By.ById("tBody-3");
+
+
 }
