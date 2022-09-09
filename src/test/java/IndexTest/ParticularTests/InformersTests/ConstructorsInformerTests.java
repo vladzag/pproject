@@ -19,8 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ConstructorsInformerTests extends DefaultPageTest {
 
@@ -391,6 +390,29 @@ public class ConstructorsInformerTests extends DefaultPageTest {
             assertNotNull(e);
         }
     }
+
+    @Test
+    public void checkMultiplePlacesLink() {
+        clickElement(InfoPageGismeteo.multipleCitiesPage);
+        Assertions.assertTrue(driver.getCurrentUrl().contains("tourism"));
+    }
+
+    @Test
+    public void twoCitiesCheck() {
+        clickElement(InfoPageGismeteo.multipleCitiesPage);
+        clickElement(InfoPageGismeteo.inputCitySelector);
+        WebElement cityInput = driver.findElement(InfoPageGismeteo.inputCitySelector);
+        cityInput.sendKeys("Москва");
+        clickElement(InfoPageGismeteo.multipleCityInputSelector);
+        clickElement(InfoPageGismeteo.inputCitySelector);
+        cityInput.sendKeys("Санкт-Петербург");
+        clickElement(InfoPageGismeteo.multipleCityInputSelector);
+        System.out.println(driver.findElement(InfoPageGismeteo.premiereMultipleCities).getText());
+        System.out.println(driver.findElement(InfoPageGismeteo.secondeMultipleCities).getText());
+
+
+    }
+}
 /*
     @Test
     public void someTestName() {
@@ -407,4 +429,4 @@ public class ConstructorsInformerTests extends DefaultPageTest {
     }
 */
 
-}
+
