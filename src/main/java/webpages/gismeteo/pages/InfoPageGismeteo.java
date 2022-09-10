@@ -89,10 +89,13 @@ public class InfoPageGismeteo extends DefaultPage {
     public static final By listOfCitiesReceived = new By.ByCssSelector(".kindT.ui-menu-item");
     public static final By multipleCitiesPage = new By.ByCssSelector("#tourism-template > a");
     public static final By inputCitySelector = new By.ByCssSelector("#multiCity");
-    public static final By multipleCityInputSelector = new By.ByCssSelector("#ui-active-menuitem");
+    public static final By multipleCityInputSelector = new By.ByCssSelector("#cityMulti > div.city_input_block.multiBlock > ul > li:nth-child(1)");
+
+    public static final By inputStPetSelector = new By.ByCssSelector("#cityMulti > div.city_input_block.multiBlock > ul > li.kindM.ui-menu-item > a");
     public static final By premiereMultipleCities = new By.ById("tBody-1");
     public static final By secondeMultipleCities = new By.ById("tBody-2");
     public static final By troisiemeMultipleCities = new By.ById("tBody-3");
-
+public static final By cityKievUpButton = new By.ByCssSelector("#city-4944-1 > input.up");
+public static final By cityKievRemoveButtonSelector = new By.ByCssSelector("#city-4944-0 > input.delete");
 
 }

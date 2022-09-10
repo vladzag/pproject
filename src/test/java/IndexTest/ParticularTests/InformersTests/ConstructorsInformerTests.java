@@ -402,16 +402,35 @@ public class ConstructorsInformerTests extends DefaultPageTest {
         clickElement(InfoPageGismeteo.multipleCitiesPage);
         clickElement(InfoPageGismeteo.inputCitySelector);
         WebElement cityInput = driver.findElement(InfoPageGismeteo.inputCitySelector);
-        cityInput.sendKeys("Москва");
+        cityInput.sendKeys("Киев");
         clickElement(InfoPageGismeteo.multipleCityInputSelector);
-        clickElement(InfoPageGismeteo.inputCitySelector);
-        cityInput.sendKeys("Санкт-Петербург");
-        clickElement(InfoPageGismeteo.multipleCityInputSelector);
-        System.out.println(driver.findElement(InfoPageGismeteo.premiereMultipleCities).getText());
-        System.out.println(driver.findElement(InfoPageGismeteo.secondeMultipleCities).getText());
 
-
+        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.premiereMultipleCities).getText().contains("Москва"));
+        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.secondeMultipleCities).getText().contains("Киев"));
     }
+
+    @Test
+    public void twoCitiesInterchangeCheck() {
+        clickElement(InfoPageGismeteo.multipleCitiesPage);
+        clickElement(InfoPageGismeteo.inputCitySelector);
+        WebElement cityInput = driver.findElement(InfoPageGismeteo.inputCitySelector);
+        cityInput.sendKeys("Киев");
+        clickElement(InfoPageGismeteo.multipleCityInputSelector);
+        clickElement(InfoPageGismeteo.cityKievUpButton);
+        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.premiereMultipleCities).getText().contains("Киев"));
+    }
+    @Test
+    public void twoCitiesInterchangeAndRemoveOneCheck() {
+        clickElement(InfoPageGismeteo.multipleCitiesPage);
+        clickElement(InfoPageGismeteo.inputCitySelector);
+        WebElement cityInput = driver.findElement(InfoPageGismeteo.inputCitySelector);
+        cityInput.sendKeys("Киев");
+        clickElement(InfoPageGismeteo.multipleCityInputSelector);
+        clickElement(InfoPageGismeteo.cityKievUpButton);
+        clickElement(InfoPageGismeteo.cityKievRemoveButtonSelector);
+        Assertions.assertFalse(driver.findElement(InfoPageGismeteo.premiereMultipleCities).getText().contains("Киев"));
+    }
+
 }
 /*
     @Test
