@@ -419,6 +419,7 @@ public class ConstructorsInformerTests extends DefaultPageTest {
         clickElement(InfoPageGismeteo.cityKievUpButton);
         Assertions.assertTrue(driver.findElement(InfoPageGismeteo.premiereMultipleCities).getText().contains("Киев"));
     }
+
     @Test
     public void twoCitiesInterchangeAndRemoveOneCheck() {
         clickElement(InfoPageGismeteo.multipleCitiesPage);
@@ -431,21 +432,23 @@ public class ConstructorsInformerTests extends DefaultPageTest {
         Assertions.assertFalse(driver.findElement(InfoPageGismeteo.premiereMultipleCities).getText().contains("Киев"));
     }
 
-}
-/*
-    @Test
-    public void someTestName() {
+
+   /* @Test
+    public void someTestName() throws InterruptedException {
         String colourCode = "00FF00";
+      clickElement(InfoPageGismeteo.contourSelector);
         clickElement(InfoPageGismeteo.contourSelector);
         clickElement(InfoPageGismeteo.borderInputDeFactoSelector);
+        Thread.sleep(50000);
         for (int i = 0; i < 6; i++) {
-            driver.findElement(InfoPageGismeteo.borderInputDeFactoSelector).sendKeys(Keys.BACK_SPACE);
+            driver.findElement(InfoPageGismeteo.borderInputDeFactoTwoSelector).sendKeys(Keys.BACK_SPACE);
         }
-        driver.findElement(InfoPageGismeteo.borderInputDeFactoSelector).sendKeys(colourCode);
+        Thread.sleep(50000);
+        driver.findElement(InfoPageGismeteo.borderInputDeFactoTwoSelector).sendKeys(colourCode);
         driver.findElement(InfoPageGismeteo.colourSubmitButton).click();
-        System.out.println(driver.findElement(InfoPageGismeteo.contourSampleSelector).getCssValue("border"));
-        Assertions.assertTrue(driver.findElement(InfoPageGismeteo.transparentBackgroundSampleSelector).getCssValue("background").contains("rgb(0, 255, 0)"));
-    }
-*/
-
+        Thread.sleep(50000);
+        System.out.println(driver.findElement(InfoPageGismeteo.borderSampleSelector).getCssValue("border"));
+        // Assertions.assertTrue(driver.findElement(InfoPageGismeteo.transparentBackgroundSampleSelector).getCssValue("background").contains("rgb(0, 255, 0)"));
+    }*/
+}
 
