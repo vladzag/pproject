@@ -25,7 +25,9 @@ public class UXTests extends DefaultPageTest {
         indexPage.searchFieldWithText("Москва");
         clickElement(IndexPageGismeteo.firstItemInSearch);
         Thread.sleep(2500);
-clickElement(webpages.gismeteo.UXTests.watchLivePrecipitationSelector);
+        clickElement(webpages.gismeteo.UXTests.watchLivePrecipitationSelector);
         Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.gismeteo.ru/nowcast-moscow-"));
+        clickElement(webpages.gismeteo.UXTests.buttonPressPrecipitationsPlaySelector);
+        Thread.sleep(2000);
     }
 }
