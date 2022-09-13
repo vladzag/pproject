@@ -1,24 +1,13 @@
 package IndexTest.ParticularTests;
 
 import IndexTest.DefaultPageTest;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.Cookie;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.PointerInput;
-import org.openqa.selenium.interactions.Sequence;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import webpages.gismeteo.IndexPageGismeteo;
 import webpages.gismeteo.pages.CityPage;
-
-import java.util.Collections;
-import java.util.Set;
-
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static webpages.gismeteo.pages.CityPage.*;
 
 
 public class TestPageContents extends DefaultPageTest {
@@ -45,11 +34,11 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void superiorPartWeatherApp() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(nowWeather);
+        clickElement(CityPage.nowWeatherSelector);
         Assertions.assertEquals(voronezhWeatherNow, driver.getCurrentUrl(), voronezhWeatherNow + " и " + driver.getCurrentUrl() + " неверные");
-        clickElement(todayWeather);
+        clickElement(CityPage.todayWeatherSelector);
         Assertions.assertEquals(voronezhURL, driver.getCurrentUrl(), voronezhURL + " и " + driver.getCurrentUrl() + " неверные");
-        clickElement(nextDayWeather);
+        clickElement(CityPage.nextDayWeatherSelector);
         Assertions.assertEquals(voronezhWeatherTomorrow, driver.getCurrentUrl(), voronezhWeatherTomorrow + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -58,13 +47,13 @@ public class TestPageContents extends DefaultPageTest {
     public void testPageContentsTest() {
         defaultPage.openWebPages(voronezhURL);
         Assertions.assertEquals(voronezhTitle, driver.getTitle(), driver.getTitle() + " и " + voronezhTitle + " не совпадают");
-        String windSpeed = getText(CityPage.windSpeed);
-        String pollenQuantity = getText(pollenPoints);
-        String weatherOnRoads = getText(CityPage.weatherOnRoads);
-        String barometricPressure = getText(CityPage.barometricPressure);
-        String humidityPercentage = getText(humidityPercent);
-        String sunAndMoon = getText(CityPage.sunAndMoon);
-        String geomagneticActivity = getText(CityPage.geomagneticActivity);
+        String windSpeed = getText(CityPage.windSpeedSelector);
+        String pollenQuantity = getText(CityPage.pollenPointsSelector);
+        String weatherOnRoads = getText(CityPage.weatherOnRoadsSelector);
+        String barometricPressure = getText(CityPage.barometricPressureSelector);
+        String humidityPercentage = getText(CityPage.humidityPercentSelector);
+        String sunAndMoon = getText(CityPage.sunAndMoonSelector);
+        String geomagneticActivity = getText(CityPage.geomagneticActivitySelector);
         String expectedWindSpeed = "Ветер, м/с";
         String expectedPollen = "Пыльца, баллы";
         String expectedWeatherOnRoads = "Погода на дорогах";
@@ -72,13 +61,13 @@ public class TestPageContents extends DefaultPageTest {
         String expectedHumidity = "Влажность, %";
         String expectedSunAndMoon = "Солнце и Луна";
         String expectedGeoActivity = "Геомагнитная активность, Кп-индекс";
-        assertThat(windSpeed, containsString(expectedWindSpeed));
-        assertThat(pollenQuantity, containsString(expectedPollen));
-        assertThat(weatherOnRoads, containsString(expectedWeatherOnRoads));
-        assertThat(barometricPressure, containsString(expectedPressure));
-        assertThat(humidityPercentage, containsString(expectedHumidity));
-        assertThat(sunAndMoon, containsString(expectedSunAndMoon));
-        assertThat(geomagneticActivity, containsString(expectedGeoActivity));
+        Assertions.assertTrue(windSpeed.contains(expectedWindSpeed));
+        Assertions.assertTrue(pollenQuantity.contains(expectedPollen));
+        Assertions.assertTrue(weatherOnRoads.contains(expectedWeatherOnRoads));
+        Assertions.assertTrue(barometricPressure.contains(expectedWindSpeed));
+        Assertions.assertTrue(humidityPercentage.contains(expectedPressure));
+        Assertions.assertTrue(sunAndMoon.contains(expectedSunAndMoon));
+        Assertions.assertTrue(geomagneticActivity.contains(expectedGeoActivity));
         driver.close();
     }
 
@@ -87,8 +76,8 @@ public class TestPageContents extends DefaultPageTest {
         defaultPage.openWebPages(degtyarskURL);
         Assertions.assertEquals(degtyarskTitle, driver.getTitle(), driver.getTitle() + " и " + degtyarskTitle + " не совпадают");
         Actions moveCursor = new Actions(driver);
-        moveCursor.moveToElement(driver.findElement(barometricPressure));
-        moveCursor.moveToElement(driver.findElement(nextDateBarometricPressure)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.barometricPressureSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.nextDateBarometricPressureSelector)).click().perform();
         Assertions.assertEquals(degtyarskURLTomorrow, driver.getCurrentUrl(), degtyarskURLTomorrow + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -97,10 +86,10 @@ public class TestPageContents extends DefaultPageTest {
     public void clickBarometricYesterday() {
         defaultPage.openWebPages(degtyarskURL);
         Actions moveCursor = new Actions(driver);
-        moveCursor.moveToElement(driver.findElement(barometricPressure));
-        moveCursor.moveToElement(driver.findElement(nextDateBarometricPressure)).click().perform();
-        moveCursor.moveToElement(driver.findElement(barometricPressure));
-        moveCursor.moveToElement(driver.findElement(previousDateBarometricPressure)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.barometricPressureSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.nextDateBarometricPressureSelector)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.barometricPressureSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.previousDateBarometricPressureSelector)).click().perform();
         Assertions.assertEquals(degtyarskURL, driver.getCurrentUrl(), degtyarskURL + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -111,8 +100,8 @@ public class TestPageContents extends DefaultPageTest {
         defaultPage.openWebPages(degtyarskURL);
         Assertions.assertEquals(degtyarskTitle, driver.getTitle(), driver.getTitle() + " и " + degtyarskTitle + " не совпадают");
         Actions moveCursor = new Actions(driver);
-        moveCursor.moveToElement(driver.findElement(windSpeed));
-        moveCursor.moveToElement(driver.findElement(nextDateWindSpeed)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.windSpeedSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.nextDateWindSpeedSelector)).click().perform();
         Assertions.assertEquals(degtyarskURLTomorrow, driver.getCurrentUrl(), degtyarskURLTomorrow + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -122,10 +111,10 @@ public class TestPageContents extends DefaultPageTest {
         defaultPage.openWebPages(degtyarskURL);
         Assertions.assertEquals(degtyarskTitle, driver.getTitle(), driver.getTitle() + " и " + degtyarskTitle + " не совпадают");
         Actions moveCursor = new Actions(driver);
-        moveCursor.moveToElement(driver.findElement(windSpeed));
-        moveCursor.moveToElement(driver.findElement(nextDateWindSpeed)).click().perform();
-        moveCursor.moveToElement(driver.findElement(windSpeed));
-        moveCursor.moveToElement(driver.findElement(previousDateWindSpeed)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.windSpeedSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.nextDateWindSpeedSelector)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.windSpeedSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.previousDateWindSpeedSelector)).click().perform();
         Assertions.assertEquals(degtyarskURL, driver.getCurrentUrl(), degtyarskURL + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -135,8 +124,8 @@ public class TestPageContents extends DefaultPageTest {
         defaultPage.openWebPages(degtyarskURL);
         Assertions.assertEquals(degtyarskTitle, driver.getTitle(), driver.getTitle() + " и " + degtyarskTitle + " не совпадают");
         Actions moveCursor = new Actions(driver);
-        moveCursor.moveToElement(driver.findElement(humidityPercent));
-        moveCursor.moveToElement(driver.findElement(nextDateHumidityPercent)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.humidityPercentSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.nextDateHumidityPercentSelector)).click().perform();
         Assertions.assertEquals(degtyarskURLTomorrow, driver.getCurrentUrl(), degtyarskURLTomorrow + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -145,10 +134,10 @@ public class TestPageContents extends DefaultPageTest {
     public void clickHumidityYesterday() {
         defaultPage.openWebPages(degtyarskURL);
         Actions moveCursor = new Actions(driver);
-        moveCursor.moveToElement(driver.findElement(humidityPercent));
-        moveCursor.moveToElement(driver.findElement(nextDateHumidityPercent)).click().perform();
-        moveCursor.moveToElement(driver.findElement(humidityPercent));
-        moveCursor.moveToElement(driver.findElement(previousDateHumidityPercent)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.humidityPercentSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.nextDateHumidityPercentSelector)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.humidityPercentSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.previousDateHumidityPercentSelector)).click().perform();
         Assertions.assertEquals(degtyarskURL, driver.getCurrentUrl(), degtyarskURL + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -158,8 +147,8 @@ public class TestPageContents extends DefaultPageTest {
         defaultPage.openWebPages(degtyarskURL);
         Assertions.assertEquals(degtyarskTitle, driver.getTitle(), driver.getTitle() + " и " + degtyarskTitle + " не совпадают");
         Actions moveCursor = new Actions(driver);
-        moveCursor.moveToElement(driver.findElement(sunAndMoon));
-        moveCursor.moveToElement(driver.findElement(nextDateSunAndMoon)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.sunAndMoonSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.nextDateSunAndMoonSelector)).click().perform();
         Assertions.assertEquals(degtyarskURLTomorrow, driver.getCurrentUrl(), degtyarskURLTomorrow + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -168,10 +157,10 @@ public class TestPageContents extends DefaultPageTest {
     public void clickSunAndMoonYesterday() {
         defaultPage.openWebPages(degtyarskURL);
         Actions moveCursor = new Actions(driver);
-        moveCursor.moveToElement(driver.findElement(sunAndMoon));
-        moveCursor.moveToElement(driver.findElement(nextDateSunAndMoon)).click().perform();
-        moveCursor.moveToElement(driver.findElement(sunAndMoon));
-        moveCursor.moveToElement(driver.findElement(previousDateSunAndMoon)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.sunAndMoonSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.nextDateSunAndMoonSelector)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.sunAndMoonSelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.previousDateSunAndMoonSelector)).click().perform();
         Assertions.assertEquals(degtyarskURL, driver.getCurrentUrl(), degtyarskURL + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -181,8 +170,8 @@ public class TestPageContents extends DefaultPageTest {
         defaultPage.openWebPages(degtyarskURL);
         Assertions.assertEquals(degtyarskTitle, driver.getTitle(), driver.getTitle() + " и " + degtyarskTitle + " не совпадают");
         Actions moveCursor = new Actions(driver);
-        moveCursor.moveToElement(driver.findElement(geomagneticActivity));
-        moveCursor.moveToElement(driver.findElement(nextDateGeomagneticActivity)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.geomagneticActivitySelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.nextDateGeomagneticActivitySelector)).click().perform();
         Assertions.assertEquals(degtyarskURLTomorrow, driver.getCurrentUrl(), degtyarskURLTomorrow + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -191,10 +180,10 @@ public class TestPageContents extends DefaultPageTest {
     public void clickGeomagneticYesterday() {
         defaultPage.openWebPages(degtyarskURL);
         Actions moveCursor = new Actions(driver);
-        moveCursor.moveToElement(driver.findElement(geomagneticActivity));
-        moveCursor.moveToElement(driver.findElement(nextDateGeomagneticActivity)).click().perform();
-        moveCursor.moveToElement(driver.findElement(geomagneticActivity));
-        moveCursor.moveToElement(driver.findElement(previousDateGeomagneticActivity)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.geomagneticActivitySelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.nextDateGeomagneticActivitySelector)).click().perform();
+        moveCursor.moveToElement(driver.findElement(CityPage.geomagneticActivitySelector));
+        moveCursor.moveToElement(driver.findElement(CityPage.previousDateGeomagneticActivitySelector)).click().perform();
         Assertions.assertEquals(degtyarskURL, driver.getCurrentUrl(), degtyarskURL + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -202,7 +191,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void checkForRealTimeChildrenTab() {
         defaultPage.openWebPages(voronezhURL);
-        WebElement countElementsDailyNews = driver.findElement(realTimeTab);
+        WebElement countElementsDailyNews = driver.findElement(CityPage.realTimeTabSelector);
         String expectedAmountOfLines = "11";
         Assertions.assertEquals(expectedAmountOfLines, countElementsDailyNews.getAttribute("childElementCount"), expectedAmountOfLines + " и " + countElementsDailyNews.getAttribute("childElementCount") + " не сходятся");
         driver.close();
@@ -211,7 +200,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void checkForChildrenCityAnnouncementsRussiaTab() {
         defaultPage.openWebPages(voronezhURL);
-        WebElement countElementsDailyNews = driver.findElement(cityAnnouncementsRussiaTab);
+        WebElement countElementsDailyNews = driver.findElement(CityPage.cityAnnouncementsRussiaTabSelector);
         String expectedAmountOfLines = "11";
         Assertions.assertEquals(expectedAmountOfLines, countElementsDailyNews.getAttribute("childElementCount"), expectedAmountOfLines + " и " + countElementsDailyNews.getAttribute("childElementCount") + " не сходятся");
         driver.close();
@@ -220,7 +209,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void checkForChildrenPulsationTab() {
         defaultPage.openWebPages(voronezhURL);
-        WebElement countElementsDailyNews = driver.findElement(pulsationTab);
+        WebElement countElementsDailyNews = driver.findElement(CityPage.pulsationTabSelector);
         String expectedAmountOfLines = "7";
         Assertions.assertEquals(expectedAmountOfLines, countElementsDailyNews.getAttribute("childElementCount"), expectedAmountOfLines + " и " + countElementsDailyNews.getAttribute("childElementCount") + " не сходятся");
         driver.close();
@@ -229,7 +218,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void checkForChildrenDailyNewsTab() {
         defaultPage.openWebPages(voronezhURL);
-        WebElement countElementsDailyNews = driver.findElement(cityNewsTab);
+        WebElement countElementsDailyNews = driver.findElement(CityPage.cityNewsTabSelector);
         String expectedAmountOfLines = "14";
         Assertions.assertEquals(expectedAmountOfLines, countElementsDailyNews.getAttribute("childElementCount"), expectedAmountOfLines + " и " + countElementsDailyNews.getAttribute("childElementCount") + " не сходятся");
         driver.close();
@@ -238,7 +227,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void checkForChildrenPartnersNewsTab() {
         defaultPage.openWebPages(voronezhURL);
-        WebElement countElementsDailyNews = driver.findElement(partnersNewsTab);
+        WebElement countElementsDailyNews = driver.findElement(CityPage.partnersNewsTabSelector);
         String expectedAmountOfLines = "16";
         Assertions.assertEquals(expectedAmountOfLines, countElementsDailyNews.getAttribute("childElementCount"), expectedAmountOfLines + " и " + countElementsDailyNews.getAttribute("childElementCount") + " не сходятся");
         driver.close();
@@ -252,8 +241,8 @@ public class TestPageContents extends DefaultPageTest {
         driver.navigate().back();
         clickElement(IndexPageGismeteo.meteoStationSVO);
         driver.get(defaultURL);
-        clickElement(CityPage.clearVisitedCities);
-        Assertions.assertFalse(driver.findElement(clearVisitedCities).isDisplayed(), driver.findElement(clearVisitedCities).isDisplayed() + " is somehow displayed");
+        clickElement(CityPage.clearVisitedCitiesSelector);
+        Assertions.assertFalse(driver.findElement(CityPage.clearVisitedCitiesSelector).isDisplayed(), driver.findElement(CityPage.clearVisitedCitiesSelector).isDisplayed() + " is somehow displayed");
         driver.close();
     }
 
@@ -262,7 +251,7 @@ public class TestPageContents extends DefaultPageTest {
         String gismeteoNewsPageTitle = "GISMETEO: Новости погоды. Свежие новости погоды в России и мире. Погодные новости дня.";
         defaultPage.openWebPages(voronezhURL);
         String originalWindow = driver.getWindowHandle();
-        clickElement(gismeteoNewsTab);
+        clickElement(CityPage.gismeteoNewsTabSelector);
         for (String windowHandle : driver.getWindowHandles()) {
             if (!originalWindow.contentEquals(windowHandle)) {
                 driver.switchTo().window(windowHandle);
@@ -276,7 +265,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherNow() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhWeatherNow);
+        clickElement(CityPage.voronezhWeatherNowSelector);
         Assertions.assertEquals(voronezhWeatherNow, driver.getCurrentUrl(), voronezhWeatherNow + " и " + driver.getCurrentUrl() + " неверные");
         driver.close();
     }
@@ -284,8 +273,8 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherToday() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhWeatherNow);
-        clickElement(CityPage.voronezhWeatherToday);
+        clickElement(CityPage.voronezhWeatherNowSelector);
+        clickElement(CityPage.voronezhWeatherTodaySelector);
         Assertions.assertEquals(voronezhURL, driver.getCurrentUrl(), voronezhURL + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
@@ -293,7 +282,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherTomorrow() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhWeatherTomorrow);
+        clickElement(CityPage.voronezhWeatherTomorrowSelector);
         Assertions.assertEquals(voronezhWeatherTomorrow, driver.getCurrentUrl(), voronezhWeatherTomorrow + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
@@ -301,7 +290,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherThreeDays() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhWeatherThreeDays);
+        clickElement(CityPage.voronezhWeatherThreeDaysSelector);
         Assertions.assertEquals(voronezhWeatherThreeDays, driver.getCurrentUrl(), voronezhWeatherThreeDays + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
@@ -309,7 +298,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherTenDays() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhWeatherTenDays);
+        clickElement(CityPage.voronezhWeatherTenDaysSelector);
         Assertions.assertEquals(voronezhWeatherTenDays, driver.getCurrentUrl(), voronezhWeatherTenDays + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
@@ -317,7 +306,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherTwoWeeks() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhWeatherTwoWeeks);
+        clickElement(CityPage.voronezhWeatherTwoWeeksSelector);
         Assertions.assertEquals(voronezhWeatherTwoWeeks, driver.getCurrentUrl(), voronezhWeatherTwoWeeks + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
@@ -325,7 +314,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherMonth() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhWeatherMonth);
+        clickElement(CityPage.voronezhWeatherMonthSelector);
         Assertions.assertEquals(voronezhWeatherMonth, driver.getCurrentUrl(), voronezhWeatherMonth + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
@@ -333,7 +322,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherRadar() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhWeatherRadar);
+        clickElement(CityPage.voronezhWeatherRadarSelector);
         Assertions.assertEquals(voronezhWeatherRadar, driver.getCurrentUrl(), voronezhWeatherRadar + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
@@ -341,7 +330,7 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherWeekly() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhWeatherWeekly);
+        clickElement(CityPage.voronezhWeatherWeeklySelector);
         Assertions.assertEquals(voronezhWeatherWeekly, driver.getCurrentUrl(), voronezhWeatherWeekly + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
@@ -349,8 +338,8 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherWeekend() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhUpperMoreButton);
-        clickElement(CityPage.voronezhWeatherWeekend);
+        clickElement(CityPage.voronezhUpperMoreButtonSelector);
+        clickElement(CityPage.voronezhWeatherWeekendSelector);
         Assertions.assertEquals(voronezhWeatherWeekend, driver.getCurrentUrl(), voronezhWeatherWeekend + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
@@ -358,8 +347,8 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherGeoMagnetic() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhUpperMoreButton);
-        clickElement(CityPage.voronezhWeatherGeoMagnetic);
+        clickElement(CityPage.voronezhUpperMoreButtonSelector);
+        clickElement(CityPage.voronezhWeatherGeoMagneticSelector);
         Assertions.assertEquals(voronezhWeatherGeoMagnetic, driver.getCurrentUrl(), voronezhWeatherGeoMagnetic + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }
@@ -367,8 +356,8 @@ public class TestPageContents extends DefaultPageTest {
     @Test
     public void verifyVoronezhWeatherDairy() {
         defaultPage.openWebPages(voronezhURL);
-        clickElement(CityPage.voronezhUpperMoreButton);
-        clickElement(CityPage.voronezhWeatherDairy);
+        clickElement(CityPage.voronezhUpperMoreButtonSelector);
+        clickElement(CityPage.voronezhWeatherDairySelector);
         Assertions.assertEquals(voronezhWeatherDairy, driver.getCurrentUrl(), voronezhWeatherDairy + " и " + driver.getCurrentUrl() + " неверные");
         driver.quit();
     }

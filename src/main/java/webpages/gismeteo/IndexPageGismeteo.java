@@ -22,21 +22,6 @@ public class IndexPageGismeteo extends DefaultPage {
     public static final By meteoStationBulchug = new By.ByCssSelector("body > section > div.content-column.column1 > section:nth-child(1) > div.widget.nearestams > div.meteostations > a:nth-child(1) > div.meteostation-title > span");
     public static final By meteoStationSVO = new By.ByCssSelector("body > section > div.content-column.column1 > section:nth-child(1) > div.widget.nearestams > div.meteostations > a:nth-child(4) > div.meteostation-title > span");
 
-
-
-
-    // "//a[contains(@class, \"search-item list-item icon-menu icon-menu-gray\")]");
-    //ByClassName(classname);
-    //ByXPath("//*[contains(concat( \" \", @class, \" \" ), concat( \" \", \"found\", \" \" ))]");
-    //ByXPath("(//a[class=\'.search-item.list-item.icon-menu.icon-menu-gray\'])[1]");
-    //ByCssSelector("a.search-item.list-item.icon-menu.icon-menu-gray");
-    //ByXPath("//*[contains(concat( \" \", @class, \" \" ), concat( \" \", \"city\", \"1\" ))]");
-    //ByClassName(".search-item.list-item.icon-menu.icon-menu-gray");
-    //By.ByXPath("//*[contains(concat( \" \", @class, \" \" ), concat( \" \", \"city\", \" \" ))]");
-    //.ByCssSelector(".found");
-    //ByXPath("//city[@id='1']city[1]");
-
-
     public IndexPageGismeteo firstItemInSearchClick() {
         driver.findElement(firstItemInSearch).click();
         return this;
@@ -76,6 +61,4 @@ public class IndexPageGismeteo extends DefaultPage {
         driver.findElement(headerLinkSoft).click();
         return this;
     }
-
-
 }
