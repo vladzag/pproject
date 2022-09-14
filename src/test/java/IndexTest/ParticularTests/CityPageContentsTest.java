@@ -25,13 +25,12 @@ public class CityPageContentsTest extends DefaultPageTest {
     public void AfterEachMethod() {
         driver.quit();
     }
+    ConfiguresAndConstants.City thisCity = new ConfiguresAndConstants.City("voronezh", 5026);
 
-    ConfiguresAndConstants.City currentCity = new ConfiguresAndConstants.City("voronezh", 5026);
-
-    String cityNameURL = ConfiguresAndConstants.defaultURL + "weather-" + currentCity.getCityName() + "-" + currentCity.getCityID() + "/";
+    String cityNameURL = ConfiguresAndConstants.defaultURL + "weather-" + thisCity.getCityName() + "-" + thisCity.getCityID() + "/";
     String currentCityWeatherTitle = "GISMETEO: Погода в Воронеже сегодня, прогноз погоды Воронеж на сегодня, Воронеж (городской округ), Воронежская область, Россия";
-    String currentCityWeatherRadar = currentCity.cityRadar(currentCity.getCityName(), currentCity.getCityID());
-    String currentCityDairy = currentCity.cityDairy(currentCity.getCityID());
+    String currentCityWeatherRadar = thisCity.cityRadar(thisCity.getCityName(), thisCity.getCityID());
+    String currentCityDairy = thisCity.cityDairy(thisCity.getCityID());
 
     @Test
     public void superiorPartWeatherApp() {
